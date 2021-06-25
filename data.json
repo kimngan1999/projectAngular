@@ -1,0 +1,61 @@
+{
+    "products":[
+        {
+            "name":"Điện thoại iPhone 12 64GB",
+            "price": 21990000 ,
+            "image":"./images/iphone-12-xanh-duong-200x200-org.png"
+        },
+        {
+            "name":"Điện thoại Samsung Galaxy S21 5G",
+            "price":17990000,
+            "image":"./images/samsung-galaxy-s21-xam-200x200-org.png"
+        },
+        {
+            "name":"Điện thoại iPhone 12 Pro Max 512GB",
+            "price": 41490000 ,
+            "image":"./images/12-pro-max-blue-200-org.png"
+        },
+        {
+            "name":"Điện thoại OPPO A74",
+            "price": 6690000,
+            "image":"./images/oppo-a74-xanh-duong-1-org.jpeg"
+        }, 
+        {
+            "name":"Điện thoại Vivo Y51 (2020)",
+            "price":17990000,
+            "image":"./images/iphone-12-pro-max-.jpeg"
+        },
+        {
+            "name":"Điện thoại Xiaomi Redmi Note 10 5G 8GB",
+            "price":5490000,
+            "image":"./images/xiaomi-redmi-note-10-5g-xanh-duong-1-org.jpeg"
+        },
+        {
+            "name":"Điện thoại iPhone 11 64GB",
+            "price":17490000,
+            "image":"./images/iphone-11-white-200-org.png"
+        },
+        {
+            "name":"Điện thoại Samsung Galaxy S20 FE (8GB/256GB)",
+            "price": 15490000,
+            "image":"./images/samsung-galaxy-s20-fe-xanhduong-200x200-org.png"
+        },
+        {
+            "name":"Điện thoại Realme C21Y 4GB",
+            "price":3990000,
+            "image":"./images/realme-c21y-xanh-1-org.jpeg"
+        }, {
+            "name":"Điện thoại Vivo Y51 (2020)",
+            "price":17990000,
+            "image":"./images/iphone-12-pro-max-.jpeg"
+        }
+    ], 
+    "Categories":[{"id": 1, "nameTopic":"Apple"}, 
+        {"id": 2, "nameTopic":"Oppo"},
+         {"id": 3, "nameTopic":"SamSung"},
+         {"id": 4, "nameTopic":"Vio"}
+
+    ]
+
+}
+

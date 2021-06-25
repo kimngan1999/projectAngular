@@ -1,0 +1,38 @@
+
+<div [class] = "registerClass">
+<form [formGroup]="registerForm">
+
+    <div [ngClass]="containerClass">
+      <p [class]="titleReClass">Register</p>
+      <p>Please fill in this form to create an account.</p>
+      <hr>
+      <label for="fullname"><b>Full Name</b></label>
+      <input type="text" placeholder="Enter Full Name" formControlName="fullname" id="fullname" required>
+      <!-- <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger"> -->
+        <span *ngIf="registerForm.controls.fullname.invalid" style="color: red;"> * Full name not empty </span><br/><br/>
+      <label for="fullname"><b>Gender</b></label>
+      <input type="checkbox" formControlName="male" id="male" value="male">
+      <label  id="lbMale"for="male"> Male</label><br>
+      <br/>
+      <label  for="email"><b >Email</b></label>
+      <input type="text" placeholder="Enter Email" formControlName="email" id="email" required>
+      <span *ngIf="registerForm.controls.email.invalid" style="color: red;"> * Full name not empty </span><br/><br/>
+  
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" formControlName="psw" id="psw" required>
+  
+      <label for="psw-repeat"><b>Repeat Password</b></label>
+      <input type="password" placeholder="Repeat Password" formControlName="pswRepeat" id="psw-repeat" required>
+      <span *ngIf="registerForm.controls.pswRepeat.value != registerForm.controls.psw.value && registerForm.controls.pswRepeat.invalid " style="color: red;"> * Password repeat must be same with the password </span><br/><br/>
+      <hr>
+    
+     
+      <button (click)="onResgister()" type="submit"  class="registerbtn" [disabled]="!registerForm.valid">Register</button>
+        
+    </div>
+    
+  </form>
+  <div [ngClass]="containerSignClass">
+    <p>Already have an account? <a href="#">Sign in</a>.</p>
+  </div>
+</div>

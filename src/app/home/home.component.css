@@ -1,0 +1,147 @@
+
+
+  [class*="col-"] {
+    float: left;
+    padding: 15px;
+  }
+/* for mobile phone */
+[class*="col-"]{
+    width: 100%;
+    
+}
+@media only screen and (max-width:600px){
+    .menu ul li a{
+        padding: 8px 8px;
+    }
+    .categories{
+        margin-top: 10px !important;  
+     }
+}
+
+/* For tablets: */
+@media only screen and (min-width:700px){
+  .col-s-1 {width: 8.33%;}
+  .col-s-2 {width: 16.66%;}
+  .col-s-3 {width: 25%;}
+  .col-s-4 {width: 33.33%;}
+  .col-s-5 {width: 41.66%;}
+  .col-s-6 {width: 50%;}
+  .col-s-7 {width: 58.33%;}
+  .col-s-8 {width: 66.66%;}
+  .col-s-9 {width: 75%;}
+  .col-s-10 {width: 83.33%;}
+  .col-s-11 {width: 91.66%;}
+  .col-s-12 {width: 100%;}
+}
+
+ /* For desktop: */
+@media only screen and (min-width:1150px){
+   
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+}
+
+/* category - left*/
+.items ul {  
+    list-style-type: none;
+   
+    padding: 0;
+}
+.items{
+    padding: 0 5px 0 5px ;
+}
+
+.items ul li a{
+    display: block;
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+.categories{
+   margin: 80px 0px 0 0px;
+   
+    text-align: center;
+   
+}
+.items ul li a{
+    border-bottom: 1px dotted rgb(129, 188, 255);
+}
+.items ul li a:hover{
+    background-color: rgb(209, 230, 255);
+   
+    
+}
+.nameCategories{
+    
+    background-color: rgb(0, 119, 255);
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 5px;
+    height: 30px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    margin: 0 5px 0 5px ;
+    
+}
+
+
+/* content */
+
+
+.titleContent{
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(0, 89, 255);
+    text-align: center;
+    width: 100%;
+
+}
+.product{
+    text-align: center;
+    border: 1px solid rgb(211, 211, 211);
+    
+    float: left;
+    
+    margin: 5px 0px 0 0;
+    padding: 20px 0 20px 0;
+    transition: width 1s, height 1s;
+}
+.product:hover{
+    background-color: rgb(244, 245, 248);
+    box-shadow: 2px 2px 1px grey;
+      
+}
+.nameProduct{
+    overflow-y: hidden;
+    height: 20px;
+    width: 100%;
+}
+.product img{
+    width: 160px;
+    height: 160px;
+}
+.btn-add-cart{
+    background-color: rgb(36, 113, 255);
+    color: white;
+    height: 33px;
+    border-radius: 5px ; 
+    border: none;
+}
+.priceProduct{
+    font-weight: bold;
+    color: tomato;
+}
+.btn-add-cart:hover{
+    cursor: pointer;
+    background-color: tomato;
+}
