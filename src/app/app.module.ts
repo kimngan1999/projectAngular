@@ -7,6 +7,10 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { SigninComponent } from './signin/signin.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { ProductManageComponent } from './product-manage/product-manage.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
 
 
 @NgModule({
@@ -14,12 +18,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     RegisterComponent,
     HomeComponent,
-    SigninComponent
+    SigninComponent,
+    ProductManageComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule, 
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

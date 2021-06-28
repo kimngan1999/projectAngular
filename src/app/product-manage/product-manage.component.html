@@ -1,0 +1,46 @@
+<div class="manageProduct">
+
+<p>PRODUCT MANAGEMENT</p>
+<p class = "titleProduct">TOTAL PRODUCTS: {{products?.length}}</p>
+<!-- <span>{{products | json}}</span><br/>
+
+<span>{{Categories | json}}</span> -->
+
+<div>
+    <table>
+        <tr>
+            <th>ID</th>
+          <th> NAME</th>
+          <th>IMAGE</th>
+          <th>PRICE</th>
+          <th></th>
+        </tr>
+        <tr *ngFor = "let item of products">
+          <td>{{item?.id}}</td>
+          <td>{{item?.name}}</td>
+          <td>
+            <!-- <input type="image" src="item?.image" width="15px" height="15px" > -->
+            {{item?.image}}
+          </td>
+          <td>{{item?.price}}</td>
+          <td><input type="image" src="assets/images/delete.png" width="15px" height="15px" (click)="deleteProduct(item)"/> &nbsp;
+            <input type="image" src="assets/images/edit.png" width="15px" height="15px" (click)="addProduct()"/>
+          </td>
+        </tr>
+        
+      
+      </table>
+
+</div>
+<div class="pagination">
+  <a href="#">&laquo;</a>
+  <a href="#"  class="active">1</a>
+  <a href="#">2</a>
+  <a href="#">3</a>
+  <a href="#">4</a>
+  <a href="#">5</a>
+  <a href="#">6</a>
+  <a href="#">&raquo;</a>
+</div>
+
+</div>

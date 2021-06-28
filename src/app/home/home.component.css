@@ -13,6 +13,7 @@
     .menu ul li a{
         padding: 8px 8px;
     }
+
     .categories{
         margin-top: 10px !important;  
      }
@@ -108,17 +109,16 @@
 }
 .product{
     text-align: center;
-    border: 1px solid rgb(211, 211, 211);
-    
+    border: 1px  solid rgb(224, 224, 224);
+   
     float: left;
-    
     margin: 5px 0px 0 0;
     padding: 20px 0 20px 0;
     transition: width 1s, height 1s;
 }
 .product:hover{
-    background-color: rgb(244, 245, 248);
-    box-shadow: 2px 2px 1px grey;
+    background-color: rgb(242, 245, 250);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
       
 }
 .nameProduct{
@@ -126,16 +126,22 @@
     height: 20px;
     width: 100%;
 }
-.product img{
-    width: 160px;
-    height: 160px;
+#imgProduct{
+    width: 65%;
+    height: 65%;
+}
+#imgProduct:hover{
+    transform: scale(1.1,1.2);
 }
 .btn-add-cart{
     background-color: rgb(36, 113, 255);
     color: white;
-    height: 33px;
-    border-radius: 5px ; 
+    height: 35px;
+    font-size: 15px;
+    border-radius: 5px; 
     border: none;
+    width: 50%;
+    padding: 3px;
 }
 .priceProduct{
     font-weight: bold;

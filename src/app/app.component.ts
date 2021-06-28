@@ -9,6 +9,6 @@ export class AppComponent {
   classNav = "nav";
   rearchClass = "search"
   title = 'projectAngular';
-  loginClass ="loginReagister"
+  navRightClass ="navRightClass"
   rowClass = "row";
 }
