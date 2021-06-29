@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductManageComponent } from './product-manage/product-manage.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { TestLinkComponent } from './test-link/test-link.component';
 
 
 
@@ -20,7 +21,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     HomeComponent,
     SigninComponent,
     ProductManageComponent,
-    DashboardComponent
+    DashboardComponent,
+    TestLinkComponent
   ],
   imports: [
     BrowserModule,
