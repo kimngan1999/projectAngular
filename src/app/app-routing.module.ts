@@ -12,7 +12,7 @@ const routes: Routes = [{path:'home', component: HomeComponent},
 {path:"register", component:RegisterComponent},
 {path:'productmanage', component: ProductManageComponent},
 {path:'dashboard', component:DashboardComponent},
-{path:'var-Servers=itpanther02', component:TestLinkComponent},
+{path:'links', component:TestLinkComponent},
 {path:'', component: HomeComponent}
 ];
 
