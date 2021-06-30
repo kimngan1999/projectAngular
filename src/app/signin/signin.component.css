@@ -18,7 +18,7 @@ button {
     cursor: pointer;
     width: 100%;
     opacity: 0.9;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 button:hover {
@@ -35,6 +35,7 @@ button:hover {
 
 .container {
   padding: 16px;
+  
 }
 
 span.psw {
@@ -43,27 +44,17 @@ span.psw {
 }
 
 /* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-  span.psw {
-     display: block;
-     float: none;
-  }
-  .cancelbtn {
-     width: 100%;
-  }
-}
+
 .formLogin{
-    position:absolute;
-    top:20%;
-    width: 50%;
-    left: 25%;
-    right: 50%;
+ 
+    width:fit-content;
     margin-top: 30px;
-    /* margin-left: auto;
-    margin-right: auto; */
-    border: 1px solid #5da3ff  ;  
+    margin-left: auto;
+    margin-right: auto;
+    /* transform: translate(-50%, -50%); */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
-    padding: 15px 40px;
+    padding: 15px 40px 40px;
     background-color: rgb(255, 255, 255);
     
    
@@ -72,6 +63,6 @@ span.psw {
 #singin{
     font-size: 25px;
     font-weight: bold;
-    color: blue;
+    color: #0076e4;
     text-align: center;
 }

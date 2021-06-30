@@ -1,11 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+
 * {
     font-family: "Times New Roman", Times, serif;
     box-sizing: border-box;
     font-size: 16px;
   }
 html, body{
-    background-color: rgb(235, 235, 235);
+    background-color: rgb(241, 241, 241);
     height: 100%;
     
 }

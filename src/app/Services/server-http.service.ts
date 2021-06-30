@@ -17,7 +17,7 @@ export class ServerHttpService {
       // Authorization: 'my-auth-token'
     })
   };
-  private RESt_API_SERVER = 'http://localhost:3000';
+  private RESt_API_SERVER = 'http://localhost:8000';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -27,7 +27,6 @@ export class ServerHttpService {
     .get<any>(url, this.httpOptions)
     .pipe( catchError(this.handleError));    
   }
-
   public addProducts(data:any){
     const url = `${this.RESt_API_SERVER}/products`;
     return this.httpClient
@@ -40,9 +39,6 @@ export class ServerHttpService {
     .delete<any>(url,this.httpOptions)
     .pipe( catchError(this.handleError));    
   }
-
-  
-  
   public getCategories(){
     const url = `${this.RESt_API_SERVER}/Categories`;
     return this.httpClient

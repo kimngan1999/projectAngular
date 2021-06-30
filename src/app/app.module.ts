@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductManageComponent } from './product-manage/product-manage.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TestLinkComponent } from './test-link/test-link.component';
+// import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 
 
@@ -28,7 +29,8 @@ import { TestLinkComponent } from './test-link/test-link.component';
     BrowserModule,
     AppRoutingModule, 
     ReactiveFormsModule, 
-    HttpClientModule
+    HttpClientModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

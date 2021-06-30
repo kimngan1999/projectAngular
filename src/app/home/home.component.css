@@ -1,4 +1,22 @@
 
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  .row {
+      position: relative;
+    height:fit-content;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 80%;
+    height: auto;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(255, 255, 255);
+  }
+
 
   [class*="col-"] {
     float: left;
@@ -9,7 +27,7 @@
     width: 100%;
     
 }
-@media only screen and (max-width:600px){
+/* @media only screen and (max-width:600px){
     .menu ul li a{
         padding: 8px 8px;
     }
@@ -17,7 +35,7 @@
     .categories{
         margin-top: 10px !important;  
      }
-}
+} */
 
 /* For tablets: */
 @media only screen and (min-width:700px){

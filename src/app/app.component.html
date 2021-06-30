@@ -1,3 +1,4 @@
+
 <div class = "header">
 <!-- <img src="assets/images/banner.png" width="100%" height="70%" > -->
 <!-- <p style="width:100%; height:75%; background-color:rgb(71, 166, 255) ">banner</p> -->
@@ -9,25 +10,27 @@
 <div [class]="classNav">
   
   <ul>
-          <li><a [routerLink] = "'/home'" routerLinkActive = "router-link-active" >Panel</a></li>
+    <li><a [routerLink] = "'/home'" routerLinkActive = "router-link-active" > <i class="fa fa-home"></i></a></li>
+          <li class="items"><a [routerLink] = "'/home'" routerLinkActive = "router-link-active" >Panel</a></li>
           <!-- <li><a [routerLink] = "'/home'" routerLinkActive = "router-link-active">Products</a></li> -->
-          <li><a [routerLink] = "'/links'" routerLinkActive = "router-link-active">Links</a></li>
-          <li><a [routerLink] = "'/dashboard'" routerLinkActive = "router-link-active">Dashboard</a></li>        
+          <li class="items"><a [routerLink] = "'/links'" routerLinkActive = "router-link-active">Links</a></li>
+          <li class="items"><a [routerLink] = "'/dashboard'" routerLinkActive = "router-link-active">Dashboard</a></li>        
           <!-- <li><a [href]="">About</a></li> -->
-          <!-- <li><a [routerLink] = "'/productmanage'" routerLinkActive = "router-link-active">ADMIN</a></li> -->
+          <li ><a [routerLink] = "'/productmanage'" routerLinkActive = "router-link-active">ADMIN</a></li>
           
        
   </ul>
   <div [class]="navRightClass">
   
-      <!-- <input type="text" id="lsearch" name="lsreach" placeholder="Search...">
-  
-    <ul>
-      <li><a [routerLink] = "'/signin'" routerLinkActive = "router-link-active" >Sign in</a></li>
-      <li><a [routerLink] = "'/register'" routerLinkActive = "router-link-active">Regiter</a></li>
+      <input type="text" id="lsearch" name="lsreach" placeholder="Search...">
       
-   
-  </ul> -->
+    <ul>
+      <li><button id="btn-search" type="submit" > <i class="fa fa-search" ></i></button></li>
+      <li class="items"><a [routerLink] = "'/signin'" routerLinkActive = "router-link-active" >Sign in</a></li>
+      <li class="items"><a [routerLink] = "'/register'" routerLinkActive = "router-link-active">Regiter</a></li>
+      <li class="iconSignIn" ><a [routerLink] = "'/signin'" routerLinkActive = "router-link-active" > <i class="fa fa-user-circle " ></i></a></li>
+      
+  </ul>
  
 </div>
 </div>
