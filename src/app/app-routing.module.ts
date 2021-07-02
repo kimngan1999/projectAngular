@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { FilterVariableComponent } from './filter-variable/filter-variable.component';
 import { HomeComponent } from './home/home.component';
 import { ProductManageComponent } from './product-manage/product-manage.component';
 import { RegisterComponent } from './register/register.component';
@@ -13,7 +14,8 @@ const routes: Routes = [{path:'home', component: HomeComponent},
 {path:'productmanage', component: ProductManageComponent},
 {path:'dashboard', component:DashboardComponent},
 {path:'links', component:TestLinkComponent},
-{path:'', component: HomeComponent}
+{path:'', component: HomeComponent},
+{path:'filter-iframe', component: FilterVariableComponent}
 ];
 
 @NgModule({

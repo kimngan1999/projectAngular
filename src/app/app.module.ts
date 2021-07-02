@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductManageComponent } from './product-manage/product-manage.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TestLinkComponent } from './test-link/test-link.component';
+import { FilterVariableComponent } from './filter-variable/filter-variable.component';
 // import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 
@@ -23,7 +24,8 @@ import { TestLinkComponent } from './test-link/test-link.component';
     SigninComponent,
     ProductManageComponent,
     DashboardComponent,
-    TestLinkComponent
+    TestLinkComponent,
+    FilterVariableComponent
   ],
   imports: [
     BrowserModule,
