@@ -1,28 +1,14 @@
-
- <div class = "filter-within-iframe">
-Data_out <<select id="listdata" name="sweets" onchange="myfunction()">
-  <option  selected="selected">40000</option>
-  <option>50000</option>
-  <option>60000</option>
-  <option>70000</option>
-  <option>80000</option>
-  <option>90000</option>
-  <option>100000</option>
-  
- 
-</select>
-<br/>
-
-<br/>
-
-<iframe  id="iframe" src="http://172.29.65.197:3000/d-solo/IUiQg2z7k/demo-dashboard?orgId=1&var-Servers=itpanther01&var-data=50000&from=1623997080000&to=1623997739000&panelId=4" width="900" height="400" frameborder="0"></iframe>
+<div class = "filter-within-iframe">
+    Data_out <
+        <select  (change)="onChange($event)">
+          <option *ngFor="let items of datalist">{{items}}</option>
+      </select>
+    <br/>
+     
+    <!-- <div *ngFor = "let item of datalist, let i = index" >
+      {{i}}<p>{{item}}</p>
+    </div> -->
+<div>
+    <iframe  [src]="urlSafe" width="900" height="400" frameborder="0"></iframe>
 </div>
-<script>
-    function myfunction(){
-      var data = document.getElementById("listdata").value;
-      var str = "http://172.29.65.197:3000/d-solo/IUiQg2z7k/demo-dashboard?orgId=1&var-Servers=itpanther01&var-data="+data+"&from=1623997080000&to=1623997739000&panelId=4"
-      
-      document.getElementById("iframe").setAttribute("src",str)
-    }
-
-</script>
+</div>

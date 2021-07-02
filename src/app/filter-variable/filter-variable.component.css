@@ -1,13 +1,8 @@
-#listdata{
-    width: 100px;
-    margin: 20px;
-
-}
-
 .filter-within-iframe{
-    position: relative;
+    
     margin-left: auto;
     margin-right: auto;
     text-align: center;
     padding: 10px;
+   
 }
