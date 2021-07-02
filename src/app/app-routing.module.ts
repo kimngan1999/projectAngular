@@ -15,7 +15,7 @@ const routes: Routes = [{path:'home', component: HomeComponent},
 {path:'dashboard', component:DashboardComponent},
 {path:'links', component:TestLinkComponent},
 {path:'', component: HomeComponent},
-{path:'filter-iframe', component: FilterVariableComponent}
+{path:'filter-var', component: FilterVariableComponent}
 ];
 
 @NgModule({
