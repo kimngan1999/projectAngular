@@ -7,11 +7,11 @@
         <p id="singin">SING IN</p>
       <label for="uname"><b>Username</b></label>
       <input type="text" placeholder="Enter Username" formControlName="uname" required>
-      <span *ngIf="formSignIn.controls.uname.invalid" style="color: red;">* Username not empty and at least 5 characters </span><br/>
+      <!-- <span *ngIf="formSignIn.controls.uname.invalid" style="color: red;">* Username not empty and at least 5 characters </span><br/> -->
   
       <label for="psw"><b>Password</b></label>
       <input type="password" placeholder="Enter Password" formControlName="psw" required><br/>
-      <span *ngIf="formSignIn.controls.psw.invalid" style="color: red;">* Password not empty and at least 3 characters </span><br/>
+      <!-- <span *ngIf="formSignIn.controls.psw.invalid" style="color: red;">* Password not empty and at least 3 characters </span><br/> -->
       
       <label>
         <input type="checkbox" checked="checked" formControlName="remember"> Remember me

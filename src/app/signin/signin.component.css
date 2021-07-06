@@ -56,9 +56,17 @@ span.psw {
     border-radius: 5px;
     padding: 15px 40px 40px;
     background-color: rgb(255, 255, 255);
+    height: 500px;
     
-   
 }
+@media only screen and (min-width:600px){
+  
+.formLogin{
+ 
+    width:550px;
+}
+}
+
 
 #singin{
     font-size: 25px;

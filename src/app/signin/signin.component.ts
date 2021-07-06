@@ -10,7 +10,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class SigninComponent implements OnInit {
 
   public formSignIn = new FormGroup({
-    uname: new FormControl('', [Validators.required, Validators.minLength(5),]),
+    uname: new FormControl('', [Validators.required, Validators.minLength(3),]),
     psw: new FormControl('',[Validators.minLength(3), Validators.maxLength(20),]),
     remember: new FormControl(''),
   });
