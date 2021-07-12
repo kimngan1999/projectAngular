@@ -8,18 +8,12 @@ import { ServerHttpService } from '../app/Services/server-http.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-<<<<<<< HEAD
-  display = "none";
-=======
->>>>>>> 54f81715c052b524929f4006d086733ae68db2c1
+
+
   data = "";
   username = "";
   password = "";
   isLogin = false;
-<<<<<<< HEAD
-
-=======
->>>>>>> 54f81715c052b524929f4006d086733ae68db2c1
   classNav = "nav";
   rearchClass = "search"
   title = 'projectAngular';
@@ -31,13 +25,7 @@ export class AppComponent {
   ngOnInit(): void {
 
   }
-<<<<<<< HEAD
-  getdata(data: any)
-  {
-    this.data=data;
-    this.username=data.username;
-    this.username=data.password;
-=======
+
 
   Login(data: any)
   {
@@ -45,7 +33,7 @@ export class AppComponent {
     console.log("data",data)
     this.username=data.username;
     this.password=data.password;
->>>>>>> 54f81715c052b524929f4006d086733ae68db2c1
+
     if(this.data){
       this.isLogin = true;
     }
@@ -58,14 +46,7 @@ export class AppComponent {
     this.isLogin = false
     this.data= "";
     this.username= "";
-<<<<<<< HEAD
-    this.username= "";
-  }
-
- 
- 
-=======
     this.password= "";
   }
->>>>>>> 54f81715c052b524929f4006d086733ae68db2c1
+
 }
