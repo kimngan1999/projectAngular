@@ -1,5 +1,5 @@
 import { NgIf } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { ServerHttpService } from '../Services/server-http.service';
@@ -12,8 +12,12 @@ import { Router } from "@angular/router";
 })
 export class SigninComponent implements OnInit {
 
+  @Output() getdata: EventEmitter<any> = new EventEmitter()
+
   public users: any[] = [];
   public user: any= "";
+  name = "bg1";
+  public isLogin = false;
 
   public formSignIn = new FormGroup({
     uname: new FormControl('', [Validators.required, Validators.minLength(1),]),
@@ -34,7 +38,7 @@ export class SigninComponent implements OnInit {
 
   }
   onSignIn(){
-    var isLogin = false;
+   
     
     var fname = this.formSignIn.controls.uname.value;
     var fpass = this.formSignIn.controls.psw.value
@@ -44,22 +48,24 @@ export class SigninComponent implements OnInit {
       if (fname == this.users[key].username && fpass == this.users[key].password) {
         // const element = this.users[key];
         // console.log(element);
-        isLogin = true;
+        this.name = this.users[key].username;
+        console.log(this.name)
+      
+        this.isLogin = true;
         alert("Login Successful");
         this.user = this.users[key] ;
-        this.router.navigateByUrl("/home", { state: this.user });
+        let str = {name:this.name ,islogin: this.isLogin };
+        this.getdata.emit(this.user);
+        this.router.navigateByUrl("/home", { state: this.user});
+        
       }
      
     }
-    if(isLogin == false){
+    if(this.isLogin == false){
       alert("The username or password incorrect");
     }
-    // if(fname == this.users[2].username && fpass == this.users[2].password)
-    // {
 
-    // }
-    // console.log('username: ' + this.formSignIn.controls.uname.value + ' password:'+ this.formSignIn.controls.psw.value);
-    // console.log( this.users[2].username);
   }
+ 
 
 }

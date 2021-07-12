@@ -11,6 +11,7 @@ import { element } from 'protractor';
 })
 export class HomeComponent implements OnInit {
   @Input()
+  isLogin = false;
   user:any;
 
   name:any;
@@ -33,10 +34,11 @@ export class HomeComponent implements OnInit {
     ngOnInit(): void {
       this.user = history.state;
       
-      if(this.user!="")
+      if(this.user!=null)
       {
         console.log(this.user.username)
-        
+        this.name = this.user.username;
+        this.isLogin= true;
       }
       else{
         console.log("no data")
@@ -48,5 +50,8 @@ export class HomeComponent implements OnInit {
     onAddProductClick() {
       alert(this.message);
   }
+ 
+    
+  
 
 }

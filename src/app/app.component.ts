@@ -8,6 +8,11 @@ import { ServerHttpService } from '../app/Services/server-http.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  display = "none";
+  data = "";
+  username = "";
+  password = "";
+  isLogin = false;
 
   classNav = "nav";
   rearchClass = "search"
@@ -21,5 +26,26 @@ export class AppComponent {
 
  
   }
+  getdata(data: any)
+  {
+    this.data=data;
+    this.username=data.username;
+    this.username=data.password;
+    if(this.data){
+      this.isLogin = true;
+    }
+    else{
+      this.isLogin = false;
+    }
+  }
+
+  logOut(){
+    this.isLogin = false
+    this.data= "";
+    this.username= "";
+    this.username= "";
+  }
+
+ 
  
 }
