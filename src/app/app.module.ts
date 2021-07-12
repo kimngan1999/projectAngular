@@ -12,8 +12,10 @@ import { ProductManageComponent } from './product-manage/product-manage.componen
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TestLinkComponent } from './test-link/test-link.component';
 import { FilterVariableComponent } from './filter-variable/filter-variable.component';
-// import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
+// import { AngularFontAwesomeModule } from 'angular-font-awesome';
+// import { ApiService } from './Services/api.service';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @NgModule({
@@ -25,7 +27,8 @@ import { FilterVariableComponent } from './filter-variable/filter-variable.compo
     ProductManageComponent,
     DashboardComponent,
     TestLinkComponent,
-    FilterVariableComponent
+    FilterVariableComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,7 @@ import { FilterVariableComponent } from './filter-variable/filter-variable.compo
     
     
   ],
-  providers: [],
+  providers: [ CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -20,7 +20,7 @@ export class ServerHttpService {
   private RESt_API_SERVER = 'http://localhost:8000';
 
   constructor(private httpClient: HttpClient) { }
-
+  // product
   public getProducts(){
     const url = `${this.RESt_API_SERVER}/products`;
     return this.httpClient
@@ -39,8 +39,17 @@ export class ServerHttpService {
     .delete<any>(url,this.httpOptions)
     .pipe( catchError(this.handleError));    
   }
+  // category 
   public getCategories(){
     const url = `${this.RESt_API_SERVER}/Categories`;
+    return this.httpClient
+    .get<any>(url, this.httpOptions)
+    .pipe( catchError(this.handleError));    
+  }
+
+  // user
+  public getUsers(){
+    const url = `${this.RESt_API_SERVER}/Users`;
     return this.httpClient
     .get<any>(url, this.httpOptions)
     .pipe( catchError(this.handleError));    

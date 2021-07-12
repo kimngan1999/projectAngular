@@ -27,14 +27,17 @@
       
     <ul>
       <li><button id="btn-search" type="submit" > <i class="fa fa-search" ></i></button></li>
+       <!-- <span *ngIf="formSignIn.controls.psw.invalid" style="color: red;"></span><br/> -->
       <li class="items"><a [routerLink] = "'/signin'" routerLinkActive = "router-link-active" >Sign in</a></li>
       <li class="items"><a [routerLink] = "'/register'" routerLinkActive = "router-link-active">Regiter</a></li>
       <li class="iconSignIn" ><a [routerLink] = "'/signin'" routerLinkActive = "router-link-active" > <i class="fa fa-user-circle " ></i></a></li>
-      
+      <!-- <li><button (click)="logout()" id="btn-search" type="submit" > <i class="fa fa-search" ></i></button></li> -->
   </ul>
  
 </div>
 </div>
+
+
 <div [class] = "rowClass">
 <router-outlet></router-outlet>
 </div>
