@@ -11,9 +11,13 @@ import { Router } from "@angular/router";
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
+<<<<<<< HEAD
 
   @Output() getdata: EventEmitter<any> = new EventEmitter()
 
+=======
+@Output() Login:EventEmitter<any> = new EventEmitter()
+>>>>>>> 54f81715c052b524929f4006d086733ae68db2c1
   public users: any[] = [];
   public user: any= "";
   name = "bg1";
@@ -54,10 +58,16 @@ export class SigninComponent implements OnInit {
         this.isLogin = true;
         alert("Login Successful");
         this.user = this.users[key] ;
+<<<<<<< HEAD
         let str = {name:this.name ,islogin: this.isLogin };
         this.getdata.emit(this.user);
         this.router.navigateByUrl("/home", { state: this.user});
         
+=======
+        console.log("this.user",this.user);
+        this.Login.emit(this.user);
+        this.router.navigateByUrl("/home", { state: this.user });
+>>>>>>> 54f81715c052b524929f4006d086733ae68db2c1
       }
      
     }
