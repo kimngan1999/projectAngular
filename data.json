@@ -83,20 +83,21 @@
     {
       "id": 1,
       "username": "admin",
-      "password": "admin",
+      "password": "123456",
       "role":1
     },
     {
       "id": 2,
-      "username":"kimngan",
+      "username":"user_editor",
       "password": "123456",
       "role":2
     },
     {
       "id": 1,
-      "username": "khanh",
-      "password": "1234",
+      "username": "user_viewer",
+      "password": "123456",
       "role":3
     }
   ]
+  
 }
