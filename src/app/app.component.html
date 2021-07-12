@@ -7,7 +7,7 @@
     
   </ul>
 </div>
-<div [class]="classNav">
+<div [class]="classNav" [style.display]="data? 'block': 'none'">
   
   <ul>
     <li><a [routerLink] = "'/home'" routerLinkActive = "router-link-active" > <i class="fa fa-home"></i></a></li>
@@ -39,7 +39,9 @@
   </ng-template>
 </div>
 </div>
-<app-signin (Login)="Login($event)"></app-signin>
-<div [class] = "rowClass">
-<router-outlet></router-outlet>
+<app-signin [style.display]="data? 'none': 'block'" (Login)="Login($event)"></app-signin>
+<div [class] = "rowClass" [style.display]="data? 'block': 'none'">
+<router-outlet ></router-outlet>
 </div>
+
+

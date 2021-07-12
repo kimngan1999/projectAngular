@@ -27,8 +27,9 @@ export class AppComponent {
   Login(data: any)
   {
     this.data=data;
+    console.log("data",data)
     this.username=data.username;
-    this.username=data.password;
+    this.password=data.password;
     if(this.data){
       this.isLogin = true;
     }
@@ -41,6 +42,6 @@ export class AppComponent {
     this.isLogin = false
     this.data= "";
     this.username= "";
-    this.username= "";
+    this.password= "";
   }
 }
