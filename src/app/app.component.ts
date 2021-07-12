@@ -8,7 +8,10 @@ import { ServerHttpService } from '../app/Services/server-http.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
+  data = "";
+  username = "";
+  password = "";
+  isLogin = false;
   classNav = "nav";
   rearchClass = "search"
   title = 'projectAngular';
@@ -19,7 +22,25 @@ export class AppComponent {
   
   ngOnInit(): void {
 
- 
   }
- 
+
+  Login(data: any)
+  {
+    this.data=data;
+    this.username=data.username;
+    this.username=data.password;
+    if(this.data){
+      this.isLogin = true;
+    }
+    else{
+      this.isLogin = false;
+    }
+  }
+
+  logOut(){
+    this.isLogin = false
+    this.data= "";
+    this.username= "";
+    this.username= "";
+  }
 }

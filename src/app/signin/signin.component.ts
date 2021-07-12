@@ -1,5 +1,5 @@
 import { NgIf } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { ServerHttpService } from '../Services/server-http.service';
@@ -11,7 +11,7 @@ import { Router } from "@angular/router";
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
-
+@Output() Login:EventEmitter<any> = new EventEmitter()
   public users: any[] = [];
   public user: any= "";
 
@@ -47,6 +47,8 @@ export class SigninComponent implements OnInit {
         isLogin = true;
         alert("Login Successful");
         this.user = this.users[key] ;
+        console.log("this.user",this.user);
+        this.Login.emit(this.user);
         this.router.navigateByUrl("/home", { state: this.user });
       }
      
