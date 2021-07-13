@@ -17,7 +17,7 @@ export class SigninComponent implements OnInit {
 
   public users: any[] = [];
   public user: any= "";
-  name = "bg1";
+  
   public isLogin = false;
 
   public formSignIn = new FormGroup({
@@ -44,9 +44,9 @@ export class SigninComponent implements OnInit {
     for (var key in this.users) {
 
       if (fname == this.users[key].username && fpass == this.users[key].password) {
-        this.name = this.users[key].username;      
+         
         this.isLogin = true;
-        alert("Login Successful");
+        // alert("Login Successful");
         this.user = this.users[key] ;
 
         this.Login.emit(this.user);
