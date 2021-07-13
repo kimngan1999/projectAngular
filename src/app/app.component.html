@@ -1,12 +1,8 @@
 
-<div class = "header">
+<div class = "col-12 header">
 <!-- <img src="assets/images/banner.png" width="100%" height="70%" > -->
 <!-- <p style="width:100%; height:75%; background-color:rgb(71, 166, 255) ">banner</p> -->
-<div>
-  <ul>
-    
-  </ul>
-</div>
+
 <div [class]="classNav" [style.display]="data? 'block': 'none'">
   
   <ul>
@@ -38,11 +34,12 @@
    <li class="iconSignIn" ><a [routerLink] = "'/signin'" routerLinkActive = "router-link-active" > <i class="fa fa-user-circle " ></i></a></li>
 
   </ng-template>
+  </div>
+</div>
 </div>
 
-</div>
 <app-signin [style.display]="data? 'none': 'block'" (Login)="Login($event)"></app-signin>
-<div [class] = "rowClass" [style.display]="data? 'block': 'none'">
+<div class = "row" [style.display]="data? 'block': 'none'">
 <router-outlet ></router-outlet>
 </div>
 

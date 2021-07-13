@@ -10,6 +10,8 @@ import { element } from 'protractor';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  public innerWidth: any;
+  public innerHeight: any;
   @Input()
   isLogin = false;
   user:any;
@@ -32,6 +34,8 @@ export class HomeComponent implements OnInit {
     constructor(private router: Router) { }
   
     ngOnInit(): void {
+      this.innerWidth = window.innerWidth;
+      this.innerHeight = window.innerHeight;
       this.user = history.state;
       
       if(this.user!=null)
