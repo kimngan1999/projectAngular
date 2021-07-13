@@ -1,7 +1,7 @@
 
 .row{
     position: relative;
-    margin-top: 40px;
+    margin-top: 30px;
     padding: 0px !important;
     margin-bottom: 10px;
 }
@@ -32,7 +32,7 @@
   }
 
 .nav{
-   height: 28%;
+   
     /* background-color: rgb(66, 128, 245); */
     overflow: hidden;
     position: -webkit-sticky; /* Safari */
