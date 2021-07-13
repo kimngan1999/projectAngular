@@ -37,10 +37,11 @@
   </div>
 </div>
 </div>
-
+<div class="col-12 container">
 <app-signin [style.display]="data? 'none': 'block'" (Login)="Login($event)"></app-signin>
 <div class = "row" [style.display]="data? 'block': 'none'">
 <router-outlet ></router-outlet>
 </div>
 
+</div>
 
