@@ -4,10 +4,9 @@
 
 
 <br>
+<iframe id="dashboard" [src]="init_url" width="1200" height="700px" frameborder="0"></iframe>
 
-
- <iframe src="http://172.29.65.197:3000/d/MFmXcoR7k/new-dashboard?orgId=1&from=1623997085000&to=1623997715000" 
- width="1000" height="600px" frameborder="0"></iframe>
-
- 
+<!-- <iframe id="dashboard" src="http://172.29.65.197:3000/dashboard/script/scripted.js?orgId=1&refresh=5s&from=1609434000000&to=1625734491307"  width="1000" height="600px"></iframe> -->
+<!-- <b>{{init_url}} </b> -->
+ <button (click)="OnClickIframe()">Iframe</button>
 </div>

@@ -6,14 +6,14 @@
   }
 
   .row {
-      position: relative;
+    
     height:fit-content;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    width: 80%;
+    /* width: 80%; */
     height: auto;
     margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
+    /* margin-left: auto;
+    margin-right: auto; */
     background-color: rgb(255, 255, 255);
   }
 

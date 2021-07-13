@@ -17,30 +17,39 @@ export class ServerHttpService {
       // Authorization: 'my-auth-token'
     })
   };
-  private RESt_API_SERVER = 'http://localhost:8000';
+  private REST_API_SERVER = 'http://172.29.65.197:8000';
 
   constructor(private httpClient: HttpClient) { }
-
+  // product
   public getProducts(){
-    const url = `${this.RESt_API_SERVER}/products`;
+    const url = `${this.REST_API_SERVER}/products`;
     return this.httpClient
     .get<any>(url, this.httpOptions)
     .pipe( catchError(this.handleError));    
   }
   public addProducts(data:any){
-    const url = `${this.RESt_API_SERVER}/products`;
+    const url = `${this.REST_API_SERVER}/products`;
     return this.httpClient
     .post<any>(url,data, this.httpOptions)
     .pipe( catchError(this.handleError));    
   }
   public deleteProducts(id: number){
-    const url = `${this.RESt_API_SERVER}/products/${id}`;
+    const url = `${this.REST_API_SERVER}/products/${id}`;
     return this.httpClient
     .delete<any>(url,this.httpOptions)
     .pipe( catchError(this.handleError));    
   }
+  // category 
   public getCategories(){
-    const url = `${this.RESt_API_SERVER}/Categories`;
+    const url = `${this.REST_API_SERVER}/Categories`;
+    return this.httpClient
+    .get<any>(url, this.httpOptions)
+    .pipe( catchError(this.handleError));    
+  }
+
+  // user
+  public getUsers(){
+    const url = `${this.REST_API_SERVER}/Users`;
     return this.httpClient
     .get<any>(url, this.httpOptions)
     .pipe( catchError(this.handleError));    

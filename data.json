@@ -78,5 +78,26 @@
       "id": 4,
       "nameTopic": "Vio"
     }
+  ],
+  "Users":[
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "123456",
+      "role":1
+    },
+    {
+      "id": 2,
+      "username":"user_editor",
+      "password": "123456",
+      "role":2
+    },
+    {
+      "id": 1,
+      "username": "user_viewer",
+      "password": "123456",
+      "role":3
+    }
   ]
+  
 }

@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { ActivatedRoute, Router } from "@angular/router";
+import { element } from 'protractor';
+
 
 @Component({
   selector: 'app-home',
@@ -6,6 +10,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  @Input()
+  isLogin = false;
+  user:any;
+
+  name:any;
     categoriesClass = "col-3 col-s-3 categories";
     categoriesName = "nameCategories"
     titleContentClass = "titleContent";
@@ -20,13 +29,29 @@ export class HomeComponent implements OnInit {
     img = ["assets/images/iphone-11-white-200-org.png"];
     img1 = ["assets/images/samsung-galaxy-s21-xam-200x200-org.png"];
   
-    constructor() { }
+    constructor(private router: Router) { }
   
     ngOnInit(): void {
+      this.user = history.state;
+      
+      if(this.user!=null)
+      {
+        console.log(this.user.username)
+        this.name = this.user.username;
+        this.isLogin= true;
+      }
+      else{
+        console.log("no data")
+      }
+     
+      
     }
     message = "The product has been added to cart"
     onAddProductClick() {
       alert(this.message);
   }
+ 
+    
+  
 
 }
