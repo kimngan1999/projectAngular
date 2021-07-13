@@ -31,11 +31,9 @@ export class SigninComponent implements OnInit {
   
   ngOnInit(): void {
     this.serverHttp.getUsers().subscribe(data=>{
-      console.log(data);
      
       this.users = data;
     });
-
 
   }
   onSignIn(){
@@ -44,20 +42,13 @@ export class SigninComponent implements OnInit {
     var fname = this.formSignIn.controls.uname.value;
     var fpass = this.formSignIn.controls.psw.value
     for (var key in this.users) {
-      // console.log(key)
-      // console.log(this.users[key].username);
+
       if (fname == this.users[key].username && fpass == this.users[key].password) {
-        // const element = this.users[key];
-        // console.log(element);
-        this.name = this.users[key].username;
-        console.log(this.name)
-      
+        this.name = this.users[key].username;      
         this.isLogin = true;
         alert("Login Successful");
         this.user = this.users[key] ;
 
-
-        console.log("this.user",this.user);
         this.Login.emit(this.user);
         this.router.navigateByUrl("/home", { state: this.user });
 
