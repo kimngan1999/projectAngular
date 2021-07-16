@@ -19,6 +19,8 @@ export class ServerHttpService {
   };
   // private REST_API_SERVER = 'http://172.29.65.197:8000';
   private REST_API_SERVER = 'http://localhost:8000';
+  private REST_API_SERVER_LOGIN = 'http://localhost:3000';
+
 
   constructor(private httpClient: HttpClient) { }
   // product
@@ -55,6 +57,8 @@ export class ServerHttpService {
     .get<any>(url, this.httpOptions)
     .pipe( catchError(this.handleError));    
   }
+
+
 
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {

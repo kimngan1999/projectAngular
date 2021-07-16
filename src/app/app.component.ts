@@ -1,6 +1,10 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 // import { ApiService } from "../app/Services/api.service";
 import { ServerHttpService } from '../app/Services/server-http.service';
+
+import { AuthService } from './Services/auth.service';
+
 
 @Component({
   selector: 'app-root',
@@ -10,43 +14,33 @@ import { ServerHttpService } from '../app/Services/server-http.service';
 export class AppComponent {
 
 
-  data = "";
-  username = "";
-  password = "";
-  isLogin = false;
-  classNav = "nav";
+  
   rearchClass = "search"
   title = 'projectAngular';
   navRightClass ="navRightClass"
   rowClass = "row";
 
-  constructor() { }
+  private roles: string[] = [];
+  isLoggedIn:any;
+  showAdminBoard = false;
+  showModeratorBoard = false;
+ 
+  username:any;
+ 
+
+  constructor( private authService: AuthService, private router: Router) { }
   
   ngOnInit(): void {
 
+    this.username = localStorage.getItem('token');  
+     this.isLoggedIn = localStorage.getItem('isLoggedIn');  
   }
 
 
-  Login(data: any)
-  {
-    this.data=data;
-    console.log("data",data)
-    this.username=data.username;
-    this.password=data.password;
-
-    if(this.data){
-      this.isLogin = true;
-    }
-    else{
-      this.isLogin = false;
-    }
-  }
-
-  logOut(){
-    this.isLogin = false
-    this.data= "";
-    this.username= "";
-    this.password= "";
-  }
+  logOut() {  
+    console.log('logout');  
+    this.authService.logout();  
+    this.router.navigate(['/signin']);  
+  }  
 
 }
