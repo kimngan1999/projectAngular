@@ -4,8 +4,13 @@
   <ul>
     <li><a [routerLink] = "'/home'" routerLinkActive = "router-link-active" > <i class="fa fa-home"></i></a></li>
           <li class="items"><a [routerLink] = "'/home'" routerLinkActive = "router-link-active" >Dashboard</a></li>
+<<<<<<< HEAD
          
           <li class="items"><a [routerLink] = "'/links'" routerLinkActive = "router-link-active">Links</a></li>
+=======
+          <!-- <li><a [routerLink] = "'/home'" routerLinkActive = "router-link-active">Products</a></li> -->
+          <li class="items1"><a [routerLink] = "'/links'" routerLinkActive = "router-link-active">Links</a></li>
+>>>>>>> a06f9538e7e2c807f26490699bfee090523ffc54
           <li class="items"><a [routerLink] = "'/dashboard'" routerLinkActive = "router-link-active">Dashboard with Params</a></li>   
           <li class="items"><a [routerLink] = "'/filter-var'" routerLinkActive = "router-link-active">Filter</a></li>       
           
@@ -31,11 +36,18 @@
   </div>
 </div> 
 </div>
+<<<<<<< HEAD
 
 <div class="col-12 container">
 <app-signin [style.display]="username? 'none': 'block'" ></app-signin>
 <div class = "row" [style.display]="username? 'block': 'none'">
+=======
+<div class="col-12 container">
+<app-signin [style.display]="data? 'none': 'block'" (Login)="Login($event)"></app-signin>
+<div class = "row" [style.display]="data? 'block': 'none'">
+>>>>>>> a06f9538e7e2c807f26490699bfee090523ffc54
 <router-outlet ></router-outlet>
 </div>
 
+</div>
 

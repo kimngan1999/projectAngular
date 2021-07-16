@@ -1,7 +1,7 @@
 
 .row{
     position: relative;
-    margin-top: 40px;
+    margin-top: 30px;
     padding: 0px !important;
     margin-bottom: 10px;
 }
@@ -17,14 +17,14 @@
     left: 0;
 }
 
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 1046px) {
   
     .iconSignIn{
         display: none;
     }
   }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1046px) {
     .items{
         display: none;
     }
@@ -32,7 +32,12 @@
   }
 
 .nav{
+<<<<<<< HEAD
 
+=======
+   
+    /* background-color: rgb(66, 128, 245); */
+>>>>>>> a06f9538e7e2c807f26490699bfee090523ffc54
     overflow: hidden;
     position: -webkit-sticky; /* Safari */
     top: 0;
