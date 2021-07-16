@@ -17,6 +17,8 @@ import { FilterVariableComponent } from './filter-variable/filter-variable.compo
 // import { ApiService } from './Services/api.service';
 import { CookieService } from 'ngx-cookie-service';
 
+import { AuthGuard } from './guards/auth.guard'; 
+
 
 @NgModule({
   declarations: [
@@ -38,7 +40,7 @@ import { CookieService } from 'ngx-cookie-service';
     
     
   ],
-  providers: [ CookieService],
+  providers: [ CookieService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

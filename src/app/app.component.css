@@ -32,13 +32,10 @@
   }
 
 .nav{
-   
-    /* background-color: rgb(66, 128, 245); */
+
     overflow: hidden;
     position: -webkit-sticky; /* Safari */
-    /* position: sticky; */
     top: 0;
-      
 }
 
 
