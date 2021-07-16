@@ -2,7 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 
 import { ActivatedRoute, Router } from "@angular/router";
 import { element } from 'protractor';
-
+import { AuthService } from '../Services/auth.service';
+// import { UserService } from '../Services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -10,6 +11,9 @@ import { element } from 'protractor';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  content?: string;
+  public innerWidth: any;
+  public innerHeight: any;
   @Input()
   isLogin = false;
   user:any;
@@ -26,32 +30,18 @@ export class HomeComponent implements OnInit {
     
     image = "image";
     
-    img = ["assets/images/iphone-11-white-200-org.png"];
-    img1 = ["assets/images/samsung-galaxy-s21-xam-200x200-org.png"];
+
   
     constructor(private router: Router) { }
   
     ngOnInit(): void {
-      this.user = history.state;
-      
-      if(this.user!=null)
-      {
-        console.log(this.user.username)
-        this.name = this.user.username;
-        this.isLogin= true;
-      }
-      else{
-        console.log("no data")
-      }
+      this.innerWidth = window.innerWidth;
+      this.innerHeight = window.innerHeight;
+    
      
       
     }
-    message = "The product has been added to cart"
-    onAddProductClick() {
-      alert(this.message);
-  }
- 
     
-  
-
+    
+ 
 }

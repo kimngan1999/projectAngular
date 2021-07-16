@@ -5,20 +5,23 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ServerHttpService } from '../Services/server-http.service';
 import { Router } from "@angular/router";
 
+import { AuthService } from '../Services/auth.service';
+
+
+
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
-
-
-@Output() Login:EventEmitter<any> = new EventEmitter()
-
+  
   public users: any[] = [];
   public user: any= "";
-  name = "bg1";
+  
   public isLogin = false;
+
+  isLoggedIn = false;
 
   public formSignIn = new FormGroup({
     uname: new FormControl('', [Validators.required, Validators.minLength(1),]),
@@ -26,40 +29,39 @@ export class SigninComponent implements OnInit {
     remember: new FormControl(''),
   });
 
-  constructor(  private serverHttp: ServerHttpService,private router: Router) { }
+  constructor(  private serverHttp: ServerHttpService,private router: Router, 
+    private authService: AuthService) { }
 
-  
   ngOnInit(): void {
     this.serverHttp.getUsers().subscribe(data=>{
-     
       this.users = data;
     });
 
-  }
-  onSignIn(){
-   
-    
-    var fname = this.formSignIn.controls.uname.value;
-    var fpass = this.formSignIn.controls.psw.value
-    for (var key in this.users) {
 
-      if (fname == this.users[key].username && fpass == this.users[key].password) {
-        this.name = this.users[key].username;      
+  }
+    onSubmit(){
+   
+    var fname = this.formSignIn.controls.uname.value;
+    var fpass = this.formSignIn.controls.psw.value;
+    for (var key in this.users) {
+    
+      if (fname == this.users[key].username && fpass == this.users[key].password) { 
+        localStorage.setItem('isLoggedIn', 'true');  
+        localStorage.setItem('token', this.users[key].username);         
         this.isLogin = true;
         alert("Login Successful");
         this.user = this.users[key] ;
-
-        this.Login.emit(this.user);
-        this.router.navigateByUrl("/home", { state: this.user });
-
+        this.router.navigateByUrl("/home");
+        this.reloadPage();
       }
-     
     }
     if(this.isLogin == false){
       alert("The username or password incorrect");
+      console.log("incorrect" +" : "+  fname  )
+      console.log("pass" +" : "+  fpass  )
     }
-
   }
- 
-
+  reloadPage(): void {
+    window.location.reload();
+  }
 }

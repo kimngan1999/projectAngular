@@ -1,23 +1,13 @@
-
-<div class = "header">
-<!-- <img src="assets/images/banner.png" width="100%" height="70%" > -->
-<!-- <p style="width:100%; height:75%; background-color:rgb(71, 166, 255) ">banner</p> -->
-<div>
-  <ul>
-    
-  </ul>
-</div>
-<div [class]="classNav" [style.display]="data? 'block': 'none'">
+<div class="header">
+<div class="nav" [style.display]="username? 'block': 'none'">
   
   <ul>
     <li><a [routerLink] = "'/home'" routerLinkActive = "router-link-active" > <i class="fa fa-home"></i></a></li>
           <li class="items"><a [routerLink] = "'/home'" routerLinkActive = "router-link-active" >Dashboard</a></li>
-          <!-- <li><a [routerLink] = "'/home'" routerLinkActive = "router-link-active">Products</a></li> -->
+         
           <li class="items"><a [routerLink] = "'/links'" routerLinkActive = "router-link-active">Links</a></li>
           <li class="items"><a [routerLink] = "'/dashboard'" routerLinkActive = "router-link-active">Dashboard with Params</a></li>   
           <li class="items"><a [routerLink] = "'/filter-var'" routerLinkActive = "router-link-active">Filter</a></li>       
-          <!-- <li><a [href]="">About</a></li> -->
-          <!-- <li ><a [routerLink] = "'/productmanage'" routerLinkActive = "router-link-active">ADMIN</a></li> -->
           
        
   </ul>
@@ -26,24 +16,27 @@
 
       <input type="text" id="lsearch" name="lsreach" placeholder="Search...">
       
-    <ul *ngIf="isLogin else elseLogin">
+    <ul *ngIf="isLoggedIn else elseLogin">
          <li class="items"><a>Welcome, {{username}}</a></li>
          <li class="items"><a (click)="logOut()" [routerLink] = "'/home'" routerLinkActive = "router-link-active" >Log out</a></li>
   </ul>
   <ng-template #elseLogin> 
     <li><button id="btn-search" type="submit" > <i class="fa fa-search" ></i></button></li>
-    <!-- <span *ngIf="formSignIn.controls.psw.invalid" style="color: red;"></span><br/> -->
+  
    <li class="items"><a [routerLink] = "'/signin'" routerLinkActive = "router-link-active" >Sign in</a></li>
    <li class="items"><a [routerLink] = "'/register'" routerLinkActive = "router-link-active">Regiter</a></li>
    <li class="iconSignIn" ><a [routerLink] = "'/signin'" routerLinkActive = "router-link-active" > <i class="fa fa-user-circle " ></i></a></li>
 
   </ng-template>
+  </div>
+</div> 
 </div>
 
-</div>
-<app-signin [style.display]="data? 'none': 'block'" (Login)="Login($event)"></app-signin>
-<div [class] = "rowClass" [style.display]="data? 'block': 'none'">
+<div class="col-12 container">
+<app-signin [style.display]="username? 'none': 'block'" ></app-signin>
+<div class = "row" [style.display]="username? 'block': 'none'">
 <router-outlet ></router-outlet>
 </div>
 
+</div>
 
