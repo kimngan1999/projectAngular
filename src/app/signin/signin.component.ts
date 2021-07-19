@@ -49,7 +49,6 @@ export class SigninComponent implements OnInit {
         localStorage.setItem('isLoggedIn', 'true');  
         localStorage.setItem('token', this.users[key].username);         
         this.isLogin = true;
-        alert("Login Successful");
         this.user = this.users[key] ;
         this.router.navigateByUrl("/home");
         this.reloadPage();
@@ -57,8 +56,6 @@ export class SigninComponent implements OnInit {
     }
     if(this.isLogin == false){
       alert("The username or password incorrect");
-      console.log("incorrect" +" : "+  fname  )
-      console.log("pass" +" : "+  fpass  )
     }
   }
   reloadPage(): void {
