@@ -17,10 +17,10 @@ export class ServerHttpService {
       // Authorization: 'my-auth-token'
     })
   };
-  // private REST_API_SERVER = 'http://172.29.65.197:8000';
-  private REST_API_SERVER = 'http://localhost:8000';
-  private REST_API_SERVER_LOGIN = 'http://localhost:3000';
+  private REST_API_SERVER = 'http://172.29.65.197:8000';
+  // private REST_API_SERVER = 'http://localhost:8000';
 
+  private REST_API_SERVER_LOGIN = 'http://172.29.65.197:3000';
 
   constructor(private httpClient: HttpClient) { }
   // product
@@ -55,6 +55,14 @@ export class ServerHttpService {
     const url = `${this.REST_API_SERVER}/Users`;
     return this.httpClient
     .get<any>(url, this.httpOptions)
+    .pipe( catchError(this.handleError));    
+  }
+
+  // login
+  public loginGrafana(data:any){
+    const url = `${this.REST_API_SERVER_LOGIN}/login`;
+    return this.httpClient
+    .post<any>(url,data, this.httpOptions)
     .pipe( catchError(this.handleError));    
   }
 

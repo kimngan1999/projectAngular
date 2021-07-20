@@ -9,6 +9,7 @@ import { AuthService } from '../Services/auth.service';
 
 
 
+
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
@@ -49,19 +50,31 @@ export class SigninComponent implements OnInit {
         localStorage.setItem('isLoggedIn', 'true');  
         localStorage.setItem('token', this.users[key].username);         
         this.isLogin = true;
-        alert("Login Successful");
+       
         this.user = this.users[key] ;
+
         this.router.navigateByUrl("/home");
+        // this.onLoginGrafana(this.users[key].username, this.users[key].password);
         this.reloadPage();
+ 
       }
     }
     if(this.isLogin == false){
       alert("The username or password incorrect");
-      console.log("incorrect" +" : "+  fname  )
-      console.log("pass" +" : "+  fpass  )
+    
     }
   }
   reloadPage(): void {
     window.location.reload();
+  }
+
+  public onLoginGrafana(us: any, ps: any){
+    console.log("shdsh"+us +"pass: "+ ps)
+    const uers = {username: us , password: ps};
+    console.log("sfsddsz"+uers.username);
+    this.serverHttp.loginGrafana(uers).subscribe(data=>{
+      console.log('addUsername', data);
+
+    });
   }
 }
