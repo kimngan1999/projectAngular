@@ -54,7 +54,7 @@ export class SigninComponent implements OnInit {
         this.user = this.users[key] ;
 
         this.router.navigateByUrl("/home");
-        this.onLoginGrafana(this.users[key].username, this.users[key].password);
+        // this.onLoginGrafana(this.users[key].username, this.users[key].password);
         this.reloadPage();
  
       }
