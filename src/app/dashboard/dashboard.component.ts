@@ -12,7 +12,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   public innerHeight: any;
 
   @ViewChild('iframe') iframe!: ElementRef;
-  // init_url:SafeResourceUrl = "http://172.29.65.197:3000/d/MFmXcoR7k/new-dashboard?orgId=1&from=now%2Fd&to=now%2Fd&var-show_value=data_out&var-value_above=10000&refresh=5s";
   init_url:SafeResourceUrl = "http://172.29.65.197:3000/dashboard/script/scripted.js?orgId=1&refresh=5s&from=1609434000000&to=1625734491307";
   constructor(public sanitizer:DomSanitizer) { }
 
@@ -21,11 +20,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     this.innerWidth = window.innerWidth;
       this.innerHeight = window.innerHeight;
     this.init_url = this.sanitizer.bypassSecurityTrustResourceUrl( "http://172.29.65.197:3000/dashboard/script/scripted.js?orgId=1&refresh=5s&from=now%2Fd&to=now%2Fd&kiosk=tv");
-    //console.log(this.init_url);
-    
-    
-    
-    
   }
 
   OnClickIframe(): void {
