@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
       const headers = {  'Access-Control-Allow-Credentials': 'true', 
       'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, HEAD, OPTIONS, PATCH, PROPFIND, PROPPATCH, MKCOL, COPY, MOVE, LOCK', 
       'Access-Control-Allow-Origin': 'http://172.29.65.197',
-      'Access-Control-Allow-Headers': 'X-Custom-Header',
+      'Access-Control-Allow-Headers': 'Authorization,Accept,Origin,DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range',
       'accept': 'application/json, text/plain, */*',
       'Accept-Language': 'en-US,en;q=0.9',
       'content-type': 'application/json',
