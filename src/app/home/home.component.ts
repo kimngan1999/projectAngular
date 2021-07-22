@@ -43,7 +43,6 @@ export class HomeComponent implements OnInit {
     OnLoginGrafana(){
       const headers = {  'Access-Control-Allow-Credentials': 'true', 
       'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, HEAD, OPTIONS, PATCH, PROPFIND, PROPPATCH, MKCOL, COPY, MOVE, LOCK', 
-      'Access-Control-Allow-Origin': 'http://172.29.65.199',
       'Access-Control-Allow-Headers': 'X-Custom-Header',
       'accept': 'application/json, text/plain, */*',
       'Accept-Encoding': 'gzip, deflate',
