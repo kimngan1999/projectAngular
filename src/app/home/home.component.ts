@@ -42,16 +42,11 @@ export class HomeComponent implements OnInit {
 
     OnLoginGrafana(){
       const headers = {  'Access-Control-Allow-Credentials': 'true', 
-      'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, HEAD, OPTIONS, PATCH, PROPFIND, PROPPATCH, MKCOL, COPY, MOVE, LOCK', 
+      'Access-Control-Request-Methods': 'GET, PUT, POST, DELETE, HEAD, OPTIONS, PATCH, PROPFIND, PROPPATCH, MKCOL, COPY, MOVE, LOCK', 
       'Access-Control-Allow-Origin': 'http://172.29.65.197:3000',
-      'accept': 'application/json, text/plain, */*',
-      'Accept-Encoding': 'gzip, deflate',
+      'Access-Control-Request-Headers': 'X-WEBAUTH-USER',
       'Accept-Language': 'en-US,en;q=0.9',
       'content-type': 'application/json',
-      'Cookie': 'redirect_to=%2Fd%2FHdK0fkWnz%2Fmultiple-types-dashboard%3ForgId%3D1%26from%3D1624905630981%26to%3D1625395230392',
-      'Host': '172.29.65.199',
-      'Origin': 'http://172.29.65.197:3000',
-      'Referer': 'http://172.29.65.197:3000/login',
       'x-grafana-org-id': '1', };
       const body = {"user": "user_editor", "password": "123456"}
       this.http.post<any>('http://172.29.65.197:3000/login', body, {headers}).subscribe(data => {
