@@ -50,11 +50,11 @@ export class HomeComponent implements OnInit {
       'content-type': 'application/json',
       'Cookie': 'redirect_to=%2Fd%2FHdK0fkWnz%2Fmultiple-types-dashboard%3ForgId%3D1%26from%3D1624905630981%26to%3D1625395230392',
       'Host': '172.29.65.199',
-      'Origin': 'http://172.29.65.197',
-      'Referer': 'http://172.29.65.197/login',
+      'Origin': 'http://172.29.65.197:3000',
+      'Referer': 'http://172.29.65.197:3000/login',
       'x-grafana-org-id': '1', };
       const body = {"user": "user_editor", "password": "123456"}
-      this.http.post<any>('http://172.29.65.197/login', body, {headers}).subscribe(data => {
+      this.http.post<any>('http://172.29.65.197:3000/login', body, {headers}).subscribe(data => {
         console.log(data);
     });
     }
