@@ -14,14 +14,10 @@ export class AuthService {
   constructor(private http: HttpClient) {
    }
 
-   logout() :void {    
-    
+   logout() :void {     
     localStorage.setItem('isLoggedIn','false');    
-    localStorage.removeItem('token');   
-    
+    localStorage.removeItem('token');     
     window.location.reload();
 
     }    
-
- 
 }

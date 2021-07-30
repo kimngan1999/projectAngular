@@ -79,25 +79,40 @@
       "nameTopic": "Vio"
     }
   ],
-  "Users":[
+  "Users": [
     {
       "id": 1,
+      "email": "admin@localhost",
       "username": "admin",
       "password": "123456",
-      "role":1
+      "role": 1
     },
     {
       "id": 2,
-      "username":"user_editor",
+      "email": "user_editor@gmail.com",
+      "username": "user_editor",
       "password": "123456",
-      "role":2
+      "role": 2
     },
     {
       "id": 1,
+      "email": "user_viewer@gmail.com",
       "username": "user_viewer",
       "password": "123456",
-      "role":3
+      "role": 3
+    },
+    {
+      "id": 4,
+      "email": "ngan85267@gmail.com",
+      "username": "kimngan",
+      "password": "123456",
+      "role": 3
     }
-  ]
+  ],
+  "token": {
   
+  },
+  "user": {
+   
+  }
 }

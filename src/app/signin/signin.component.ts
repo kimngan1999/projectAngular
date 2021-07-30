@@ -6,8 +6,9 @@ import { ServerHttpService } from '../Services/server-http.service';
 import { Router } from "@angular/router";
 
 import { AuthService } from '../Services/auth.service';
+import { GrafanaOAuthService } from '../Services/grafana-oauth.service';
 
-
+import {Md5} from 'ts-md5/dist/md5';
 
 
 @Component({
@@ -16,9 +17,12 @@ import { AuthService } from '../Services/auth.service';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
-  
+  public token : any[] = [];
+  public userlogin : any[] = [];
+
   public users: any[] = [];
   public user: any= "";
+  acc_token:any = "";
   
   public isLogin = false;
 
@@ -30,12 +34,23 @@ export class SigninComponent implements OnInit {
     remember: new FormControl(''),
   });
 
-  constructor(  private serverHttp: ServerHttpService,private router: Router, 
+  constructor(  private serverHttp: ServerHttpService,private serverAuth: GrafanaOAuthService,private router: Router, 
     private authService: AuthService) { }
 
   ngOnInit(): void {
     this.serverHttp.getUsers().subscribe(data=>{
       this.users = data;
+    });
+
+    this.serverAuth.getToken().subscribe(data=>{
+      console.log(data);
+     
+      this.token = data;
+    });
+    this.serverAuth.getUserLogin().subscribe(data=>{
+      console.log(data);
+     
+      this.userlogin = data;
     });
 
 
@@ -50,11 +65,13 @@ export class SigninComponent implements OnInit {
         localStorage.setItem('isLoggedIn', 'true');  
         localStorage.setItem('token', this.users[key].username);         
         this.isLogin = true;
-       
+        const md5 = new Md5();
         this.user = this.users[key] ;
 
+        this.acc_token= md5.appendStr(this.users[key].password).end();
+        this.addToken(this.acc_token);
+        this.addUserLogin(this.users[key].username, this.users[key].email);
         this.router.navigateByUrl("/home");
-        // this.onLoginGrafana(this.users[key].username, this.users[key].password);
         this.reloadPage();
  
       }
@@ -68,13 +85,28 @@ export class SigninComponent implements OnInit {
     window.location.reload();
   }
 
-  public onLoginGrafana(us: any, ps: any){
-    console.log("shdsh"+us +"pass: "+ ps)
-    const uers = {username: us , password: ps};
-    console.log("sfsddsz"+uers.username);
-    this.serverHttp.loginGrafana(uers).subscribe(data=>{
-      console.log('addUsername', data);
+  // public onLoginGrafana(us: any, ps: any){
+    
+  //   const uers = {username: us , password: ps};
+   
+  //   this.serverHttp.loginGrafana(uers).subscribe(data=>{
+  //     console.log('addUsername', data);
 
+  //   });
+  // }
+
+  public addToken(access_token: any){
+    const newToken = {access_token:access_token, token_type: "Bearer", expiry_in:"1566172800", refresh_token:access_token};
+    this.serverAuth.addToken(newToken).subscribe(data=>{
+      
+      this.token.push(data);
+    });
+  }
+  public addUserLogin(usern:any, mail: any){
+    const newUser = {username:usern, email: mail };
+    this.serverAuth.addUserLogin(newUser).subscribe(data=>{
+      
+      this.userlogin.push(data);
     });
   }
 }

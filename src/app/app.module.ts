@@ -17,7 +17,8 @@ import { FilterVariableComponent } from './filter-variable/filter-variable.compo
 // import { ApiService } from './Services/api.service';
 import { CookieService } from 'ngx-cookie-service';
 
-import { AuthGuard } from './guards/auth.guard'; 
+import { AuthGuard } from './guards/auth.guard';
+import { AuthComponent } from './auth/auth.component'; 
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { AuthGuard } from './guards/auth.guard';
     DashboardComponent,
     TestLinkComponent,
     FilterVariableComponent,
+    AuthComponent,
     
   ],
   imports: [
