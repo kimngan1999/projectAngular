@@ -25,7 +25,7 @@ export class SigninComponent implements OnInit {
   acc_token:any = "";
   
   public isLogin = false;
-
+  public uniqid = require('uniqid');
   isLoggedIn = false;
 
   public formSignIn = new FormGroup({
@@ -96,7 +96,8 @@ export class SigninComponent implements OnInit {
   // }
 
   public addToken(access_token: any){
-    const newToken = {access_token:access_token, token_type: "Bearer", expiry_in:"1566172800", refresh_token:access_token};
+    
+    const newToken = {access_token: this.uniqid(access_token), token_type: "Bearer", expiry_in:"1566172800", refresh_token: this.uniqid(access_token)};
     this.serverAuth.addToken(newToken).subscribe(data=>{
       
       this.token.push(data);

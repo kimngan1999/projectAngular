@@ -59,12 +59,12 @@ export class ServerHttpService {
   }
 
   // login
-  public loginGrafana(data:any){
-    const url = `${this.REST_API_SERVER_LOGIN}/login`;
-    return this.httpClient
-    .post<any>(url,data, this.httpOptions)
-    .pipe( catchError(this.handleError));    
-  }
+  // public loginGrafana(data:any){
+  //   const url = `${this.REST_API_SERVER_LOGIN}/login`;
+  //   return this.httpClient
+  //   .post<any>(url,data, this.httpOptions)
+  //   .pipe( catchError(this.handleError));    
+  // }
 
 
   private handleError(error: HttpErrorResponse) {
