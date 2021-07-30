@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthComponent } from './auth/auth.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FilterVariableComponent } from './filter-variable/filter-variable.component';
 import { AuthGuard } from './guards/auth.guard';
@@ -16,7 +17,9 @@ const routes: Routes = [{path:'home', component: HomeComponent, canActivate : [A
 {path:'dashboard', component:DashboardComponent},
 {path:'links', component:TestLinkComponent},
 {path:'', component: HomeComponent},
-{path:'filter-var', component: FilterVariableComponent}
+{path:'filter-var', component: FilterVariableComponent},
+{path:'auth', component: AuthComponent},
+
 ];
 
 @NgModule({

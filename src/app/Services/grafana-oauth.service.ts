@@ -2,65 +2,55 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
-
 @Injectable({
   providedIn: 'root'
-
 })
+export class GrafanaOAuthService {
+  public url = "";
 
-export class ServerHttpService {
+  constructor( private httpClient: HttpClient) { }
 
- 
+  // auth(state: string)
+  // {
+  //     state = encodeURIComponent(state);
+  //     this.url = "http://localhost:3000/login/generic_oauth?state="+ state +"&code=cc536d98d27750394a87ab9d057016e636a8ac31";    
+  //     this.location.go(this.url);   
+  // }
+
+   
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json',
-      // Authorization: 'my-auth-token'
+      
     })
   };
   // private REST_API_SERVER = 'http://172.29.65.197:8000';
   private REST_API_SERVER = 'http://localhost:8000';
 
-  private REST_API_SERVER_LOGIN = 'http://172.29.65.197:3000';
-
-  constructor(private httpClient: HttpClient) { }
-  // product
-  public getProducts(){
-    const url = `${this.REST_API_SERVER}/products`;
+  public getToken(){
+    const url = `${this.REST_API_SERVER}/token`;
     return this.httpClient
     .get<any>(url, this.httpOptions)
     .pipe( catchError(this.handleError));    
   }
-  public addProducts(data:any){
-    const url = `${this.REST_API_SERVER}/products`;
+
+  public addToken(data:any){
+    const url = `${this.REST_API_SERVER}/token`;
     return this.httpClient
     .post<any>(url,data, this.httpOptions)
     .pipe( catchError(this.handleError));    
+     
   }
-  public deleteProducts(id: number){
-    const url = `${this.REST_API_SERVER}/products/${id}`;
-    return this.httpClient
-    .delete<any>(url,this.httpOptions)
-    .pipe( catchError(this.handleError));    
-  }
-  // category 
-  public getCategories(){
-    const url = `${this.REST_API_SERVER}/Categories`;
+  
+  public getUserLogin(){
+    const url = `${this.REST_API_SERVER}/user`;
     return this.httpClient
     .get<any>(url, this.httpOptions)
     .pipe( catchError(this.handleError));    
   }
 
-  // user
-  public getUsers(){
-    const url = `${this.REST_API_SERVER}/Users`;
-    return this.httpClient
-    .get<any>(url, this.httpOptions)
-    .pipe( catchError(this.handleError));    
-  }
-
-  // login
-  public loginGrafana(data:any){
-    const url = `${this.REST_API_SERVER_LOGIN}/login`;
+  public addUserLogin(data:any){
+    const url = `${this.REST_API_SERVER}/user`;
     return this.httpClient
     .post<any>(url,data, this.httpOptions)
     .pipe( catchError(this.handleError));    
@@ -84,3 +74,4 @@ export class ServerHttpService {
   }
   
 }
+
