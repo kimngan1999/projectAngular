@@ -1,28 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterState, RouterStateSnapshot } from '@angular/router';
+import { ActivatedRoute, Router, RouterState, RouterStateSnapshot } from '@angular/router';
 import { Location } from '@angular/common';
-
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.css']
 })
 export class AuthComponent implements OnInit {
-  
-  // public state:any = this.router.routerState;
-
   public url:any= "";
-  public state:any ="";
-
-  constructor(private router: Router, private location: Location, state: RouterStateSnapshot) { }
+  private state: any
+  constructor(private http: HttpClient,private activatedRoute: ActivatedRoute) { 
+    
+  }
 
   ngOnInit(): void {
-
-    this.state =  this.state.url;
-    console.log("sdzdvfd");
-    console.log( this.state);
-    this.state = encodeURIComponent(this.state);
+    this.activatedRoute.queryParams.subscribe(params => {
+      this.state = params['state'];
+      console.log("state",this.state); // Print the parameter to the console. 
+    });
       this.url = "http://localhost:3000/login/generic_oauth?state="+ this.state +"&code=cc536d98d27750394a87ab9d057016e636a8ac31";    
-      this.location.go(this.url);     
+      window.location.href = this.url; 
+
+    
+      
   }
 }
