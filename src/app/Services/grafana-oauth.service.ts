@@ -9,23 +9,14 @@ export class GrafanaOAuthService {
   public url = "";
 
   constructor( private httpClient: HttpClient) { }
-
-  // auth(state: string)
-  // {
-  //     state = encodeURIComponent(state);
-  //     this.url = "http://localhost:3000/login/generic_oauth?state="+ state +"&code=cc536d98d27750394a87ab9d057016e636a8ac31";    
-  //     this.location.go(this.url);   
-  // }
-
-   
+ 
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json',
       
     })
   };
-  // private REST_API_SERVER = 'http://172.29.65.197:8000';
-  private REST_API_SERVER = 'http://localhost:8000';
+  private REST_API_SERVER = 'http://172.29.65.193:8000';
 
   public getToken(){
     const url = `${this.REST_API_SERVER}/token`;

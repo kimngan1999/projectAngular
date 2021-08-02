@@ -39,19 +39,4 @@ export class HomeComponent implements OnInit {
       this.innerWidth = window.innerWidth;
       this.innerHeight = window.innerHeight; 
     }
-
-    OnLoginGrafana(){
-      const headers = {  'Access-Control-Allow-Credentials': 'true', 
-      'Access-Control-Request-Methods': 'GET, PUT, POST, DELETE, HEAD, OPTIONS, PATCH, PROPFIND, PROPPATCH, MKCOL, COPY, MOVE, LOCK', 
-      'Access-Control-Allow-Origin': 'http://172.29.65.197:3000',
-      'Access-Control-Request-Headers': 'X-WEBAUTH-USER',
-      'Accept-Language': 'en-US,en;q=0.9',
-      'content-type': 'application/json',
-      'x-grafana-org-id': '1', };
-      const body = {"user": "user_editor", "password": "123456"}
-      this.http.post<any>('http://172.29.65.197:3000/login', body, {headers}).subscribe(data => {
-        console.log(data);
-    });
-    }
- 
 }
