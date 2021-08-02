@@ -4,7 +4,6 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { element } from 'protractor';
 import { AuthService } from '../Services/auth.service';
 import { HttpClient } from '@angular/common/http';
-// import { UserService } from '../Services/user.service';
 
 @Component({
   selector: 'app-home',
