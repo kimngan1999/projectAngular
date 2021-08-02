@@ -62,15 +62,17 @@ export class SigninComponent implements OnInit {
     for (var key in this.users) {
     
       if (fname == this.users[key].username && fpass == this.users[key].password) { 
+        this.user = this.users[key] ;
+        this.addUserLogin(this.users[key].username, this.users[key].email);
+   
         localStorage.setItem('isLoggedIn', 'true');  
         localStorage.setItem('token', this.users[key].username);         
         this.isLogin = true;
         const md5 = new Md5();
-        this.user = this.users[key] ;
-
+   
         this.acc_token= md5.appendStr(this.users[key].password).end();
         this.addToken(this.acc_token);
-        this.addUserLogin(this.users[key].username, this.users[key].email);
+
         this.router.navigateByUrl("/home");
         this.reloadPage();
  
