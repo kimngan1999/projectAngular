@@ -16,7 +16,7 @@ export class GrafanaOAuthService {
       
     })
   };
-  private REST_API_SERVER = 'http://172.29.65.193:8000';
+  private REST_API_SERVER = 'http://172.29.65.197:8000';
 
   public getToken(){
     const url = `${this.REST_API_SERVER}/token`;
