@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
 
     onLogout(){
       const body = {}
-      this.http.get<any>('http://172.29.65.199/login', body).subscribe(data => {
+      this.http.get<any>('http://172.29.65.193:3000/logout', body).subscribe(data => {
         console.log(data);
     });
     }
