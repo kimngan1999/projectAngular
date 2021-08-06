@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ServerHttpService } from '../app/Services/server-http.service';
 
 import { AuthService } from './Services/auth.service';
+declare var jQuery: any;
 
 
 @Component({
@@ -39,6 +40,11 @@ export class AppComponent {
 
   logOut() {  
     console.log('logout');  
+    (function ($) {
+      console.log(1);
+      $('iframe').attr("src","http://172.29.65.197:3000/logout")
+     
+    })(jQuery);
     this.authService.logout();  
     this.router.navigate(['/signin']);  
   }  
