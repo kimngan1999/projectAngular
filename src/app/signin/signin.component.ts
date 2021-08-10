@@ -9,13 +9,14 @@ import { AuthService } from '../Services/auth.service';
 import { GrafanaOAuthService } from '../Services/grafana-oauth.service';
 
 import {Md5} from 'ts-md5/dist/md5';
-
+import { createElementCssSelector } from '@angular/compiler';
 
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.css']
 })
+
 export class SigninComponent implements OnInit {
   public token : any[] = [];
   public userlogin : any[] = [];
@@ -53,10 +54,24 @@ export class SigninComponent implements OnInit {
       this.userlogin = data;
     });
 
-
   }
-    onSubmit(){
-   
+
+  public login(user:any, pass: any){
+    const User = {user,pass};
+    this.serverAuth.login(User).subscribe();
+  }
+
+  onSubmit(){
+      var fname = this.formSignIn.controls.uname.value;
+      var fpass = this.formSignIn.controls.psw.value;
+      const loginRes = this.login(fname,fpass);
+      localStorage.setItem("auth-token", 'nnx');
+      localStorage.setItem("user-login", JSON.stringify('123'));
+  }
+
+}
+    
+   /*
     var fname = this.formSignIn.controls.uname.value;
     var fpass = this.formSignIn.controls.psw.value;
     for (var key in this.users) {
@@ -112,4 +127,5 @@ export class SigninComponent implements OnInit {
       this.userlogin.push(data);
     });
   }
-}
+  */
+

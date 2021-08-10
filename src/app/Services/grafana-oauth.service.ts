@@ -16,7 +16,7 @@ export class GrafanaOAuthService {
       
     })
   };
-  private REST_API_SERVER = 'http://172.29.65.197:8000';
+  private REST_API_SERVER = 'http://localhost:8000';
 
   public getToken(){
     const url = `${this.REST_API_SERVER}/token`;
@@ -46,7 +46,13 @@ export class GrafanaOAuthService {
     .post<any>(url,data, this.httpOptions)
     .pipe( catchError(this.handleError));    
   }
-
+  
+  public login(data:any){
+    const url = `http://localhost:8080/users/login`;
+    return this.httpClient
+    .post<any>(url,data,{observe: 'response'})
+    .pipe( catchError(this.handleError));    
+  }
 
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
