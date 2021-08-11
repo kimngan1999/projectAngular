@@ -30,14 +30,7 @@ export class SigninComponent implements OnInit {
     private authService: AuthService) { }
 
   ngOnInit(): void {
-    /*
-    if (!localStorage.getItem("msg"))
-    {
-      this.msg = ''; 
-    } 
-    else{
-      this.msg = localStorage.getItem("msg")
-    }*/
+    
   }
 
   onSubmit(){

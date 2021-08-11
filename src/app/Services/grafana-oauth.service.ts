@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { error } from '@angular/compiler/src/util';
 
 @Injectable({
   providedIn: 'root'
@@ -52,19 +53,13 @@ export class GrafanaOAuthService {
   public login(user:any ,pass: any) {  
     return this.httpClient.post<any>('http://localhost:8080/users/login', {username: user,password: pass}).pipe(
     map((data) => {
-      if (!data.msg)
-      {
         console.log(data);
         localStorage.setItem("auth-token", data.accessToken);
         localStorage.setItem("user-login", data.user.username);
         localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('msg','');
         window.location.reload();
         return data;
-      }
-      else{
-        localStorage.setItem("msg",data.msg);
-        alert(data.msg);
-      }  
       })
     )
   
