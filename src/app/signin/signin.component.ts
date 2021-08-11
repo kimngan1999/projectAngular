@@ -43,7 +43,6 @@ export class SigninComponent implements OnInit {
     this.serverAuth.login(fname,fpass).pipe(
       map(data => this.router.navigateByUrl('/home'))
     ).subscribe();
-    window.location.reload();
   }
 
 }
