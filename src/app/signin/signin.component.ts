@@ -10,6 +10,7 @@ import { GrafanaOAuthService } from '../Services/grafana-oauth.service';
 
 import {Md5} from 'ts-md5/dist/md5';
 import { createElementCssSelector } from '@angular/compiler';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-signin',
@@ -18,17 +19,7 @@ import { createElementCssSelector } from '@angular/compiler';
 })
 
 export class SigninComponent implements OnInit {
-  public token : any[] = [];
-  public userlogin : any[] = [];
-
-  public users: any[] = [];
-  public user: any= "";
-  acc_token:any = "";
-  
-  public isLogin = false;
-  public uniqid = require('uniqid');
-  isLoggedIn = false;
-
+  public token : any = "";
   public formSignIn = new FormGroup({
     uname: new FormControl('', [Validators.required, Validators.minLength(1),]),
     psw: new FormControl('',[Validators.minLength(3), Validators.maxLength(20),]),
@@ -39,34 +30,20 @@ export class SigninComponent implements OnInit {
     private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.serverHttp.getUsers().subscribe(data=>{
-      this.users = data;
-    });
-
-    this.serverAuth.getToken().subscribe(data=>{
-      console.log(data);
-     
-      this.token = data;
-    });
-    this.serverAuth.getUserLogin().subscribe(data=>{
-      console.log(data);
-     
-      this.userlogin = data;
-    });
-
-  }
-
-  public login(user:any, pass: any){
-    const User = {user,pass};
-    this.serverAuth.login(User).subscribe();
+  
   }
 
   onSubmit(){
-      var fname = this.formSignIn.controls.uname.value;
-      var fpass = this.formSignIn.controls.psw.value;
-      const loginRes = this.login(fname,fpass);
-      localStorage.setItem("auth-token", 'nnx');
-      localStorage.setItem("user-login", JSON.stringify('123'));
+    if(this.formSignIn.invalid){
+      return;
+    }
+    var fname = this.formSignIn.controls.uname.value;
+    var fpass = this.formSignIn.controls.psw.value;
+    
+    this.serverAuth.login(fname,fpass).pipe(
+      map(data => this.router.navigate(['dashbroad']))
+    ).subscribe();
+    
   }
 
 }
