@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { access } from 'fs';
 // import { ApiService } from "../app/Services/api.service";
 import { ServerHttpService } from '../app/Services/server-http.service';
 
@@ -33,8 +34,8 @@ export class AppComponent {
   
   ngOnInit(): void {
 
-    this.username = localStorage.getItem('token');  
-     this.isLoggedIn = localStorage.getItem('isLoggedIn');  
+    this.username = localStorage.getItem('user-login');  
+    this.isLoggedIn = localStorage.getItem('isLoggedIn');  
   }
 
 
@@ -45,6 +46,7 @@ export class AppComponent {
       $('iframe').attr("src","http://localhost:3000/logout")
      
     })(jQuery);
+    localStorage.clear();
     this.authService.logout();  
     this.router.navigate(['/signin']);  
   }  

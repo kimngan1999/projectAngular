@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { map } from 'rxjs/operators';
 
 export class GrafanaOAuthService {
   public url = "";
-  constructor( private httpClient: HttpClient) { }
+  constructor( private httpClient: HttpClient, private router: Router) { }
   
   private httpOptions = {
     headers: new HttpHeaders({
@@ -47,7 +48,7 @@ export class GrafanaOAuthService {
     .post<any>(url,data, this.httpOptions)
     .pipe( catchError(this.handleError));    
   }
-  
+
   public login(user:any ,pass: any) {  
     return this.httpClient.post<any>('http://localhost:8080/users/login', {username: user,password: pass}).pipe(
     map((data) => {
@@ -55,19 +56,20 @@ export class GrafanaOAuthService {
       {
         console.log(data);
         localStorage.setItem("auth-token", data.accessToken);
-        const user=JSON.stringify(data.user);
-        localStorage.setItem("user-login", user.['username']);
+        localStorage.setItem("user-login", data.user.username);
         localStorage.setItem('isLoggedIn', 'true');
+        window.location.reload();
         return data;
       }
       else{
+        localStorage.setItem("msg",data.msg);
         alert(data.msg);
-        window.location.reload();
       }  
       })
     )
+  
   }
-
+  
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
       // A client-side or network error occurred. Handle it accordingly.
