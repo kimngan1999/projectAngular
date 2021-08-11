@@ -51,11 +51,19 @@ export class GrafanaOAuthService {
   public login(user:any ,pass: any) {  
     return this.httpClient.post<any>('http://localhost:8080/users/login', {username: user,password: pass}).pipe(
     map((data) => {
+      if (!data.msg)
+      {
         console.log(data);
         localStorage.setItem("auth-token", data.accessToken);
-        localStorage.setItem("user-login", JSON.stringify(data.user));
+        const user=JSON.stringify(data.user);
+        localStorage.setItem("user-login", user.['username']);
         localStorage.setItem('isLoggedIn', 'true');
         return data;
+      }
+      else{
+        alert(data.msg);
+        window.location.reload();
+      }  
       })
     )
   }
