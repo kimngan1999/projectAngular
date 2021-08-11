@@ -41,9 +41,9 @@ export class SigninComponent implements OnInit {
     var fpass = this.formSignIn.controls.psw.value;
     
     this.serverAuth.login(fname,fpass).pipe(
-      map(data => this.router.navigate(['dashbroad']))
+      map(data => this.router.navigateByUrl('/home'))
     ).subscribe();
-    
+    window.location.reload();
   }
 
 }
