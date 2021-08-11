@@ -2,18 +2,19 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class GrafanaOAuthService {
   public url = "";
-
   constructor( private httpClient: HttpClient) { }
- 
+  
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json',
-      
     })
   };
   private REST_API_SERVER = 'http://localhost:8000';
@@ -47,11 +48,15 @@ export class GrafanaOAuthService {
     .pipe( catchError(this.handleError));    
   }
   
-  public login(data:any){
-    const url = `http://localhost:8080/users/login`;
-    return this.httpClient
-    .post<any>(url,data,{observe: 'response'})
-    .pipe( catchError(this.handleError));    
+  public login(user:any ,pass: any) {  
+    return this.httpClient.post<any>('http://localhost:8080/user/login', {username: user,password: pass}).pipe(
+    map((data) => {
+        console.log(data);
+        localStorage.setItem("auth-token", data.token);
+        localStorage.setItem("user-login", JSON.stringify(data.user));
+        return data;
+      })
+    )
   }
 
   private handleError(error: HttpErrorResponse) {
