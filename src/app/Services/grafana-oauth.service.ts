@@ -5,6 +5,7 @@ import { catchError, retry } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { error } from '@angular/compiler/src/util';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,10 @@ import { error } from '@angular/compiler/src/util';
 
 export class GrafanaOAuthService {
   public url = "";
-  constructor( private httpClient: HttpClient, private router: Router) { }
+  public username:any;
+  public email:any;
+  private url1 ="http://localhost:4200/"
+  constructor( private httpClient: HttpClient, private router: Router, private cookieService: CookieService) { }
   
   private httpOptions = {
     headers: new HttpHeaders({
@@ -51,18 +55,29 @@ export class GrafanaOAuthService {
   }
 
   public login(user:any ,pass: any) {  
-    return this.httpClient.post<any>('http://localhost:8080/users/login', {username: user,password: pass}).pipe(
-    map((data) => {
-        console.log(data);
-        localStorage.setItem("auth-token", data.accessToken);
+    const dateNow = new Date();
+    dateNow.setHours(dateNow.getHours() + 8);
+    return this.httpClient.post<any>('http://localhost:8080/users/login', {username: user,password: pass}).subscribe(
+    (data) => {
+        this.Grafanalogin( data.user.username,  data.user.email)
+        console.log(this.Grafanalogin);
+        this.cookieService.set('accesstoken', data.accessToken, { expires: dateNow, sameSite: 'Lax' });
         localStorage.setItem("user-login", data.user.username);
+        localStorage.setItem("user-email", data.user.email);
         localStorage.setItem('isLoggedIn', 'true');
-        localStorage.setItem('msg','');
-        window.location.reload();
-        return data;
-      })
+        this.router.navigateByUrl('/home')
+        window.location.href = this.url1; 
+      }
     )
-  
+  }
+
+  public Grafanalogin(username:any,email:any) {  
+    return this.httpClient.patch<any>('http://localhost:8080/activeuser/6114d25e0ef030016eb610bd',{username: username, email:email}).subscribe(
+    (data) => {
+        console.log(data);
+      }
+    )
+    
   }
   
   private handleError(error: HttpErrorResponse) {

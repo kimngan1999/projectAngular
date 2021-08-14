@@ -39,11 +39,7 @@ export class SigninComponent implements OnInit {
     }
     var fname = this.formSignIn.controls.uname.value;
     var fpass = this.formSignIn.controls.psw.value;
-    
-    this.serverAuth.login(fname,fpass).pipe(
-      map(data => this.router.navigateByUrl('/home'))
-    ).subscribe();
-    
+    this.serverAuth.login(fname,fpass)
   }
 
 }

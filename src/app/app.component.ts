@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { access } from 'fs';
 // import { ApiService } from "../app/Services/api.service";
 import { ServerHttpService } from '../app/Services/server-http.service';
-
+import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from './Services/auth.service';
 declare var jQuery: any;
 
@@ -14,7 +14,7 @@ declare var jQuery: any;
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
+  private url1 ="http://localhost:4200/"
 
   
   rearchClass = "search"
@@ -26,16 +26,16 @@ export class AppComponent {
   isLoggedIn:any;
   showAdminBoard = false;
   showModeratorBoard = false;
- 
+  accesstoken:any;
   username:any;
  
 
-  constructor( private authService: AuthService, private router: Router) { }
+  constructor( private authService: AuthService, private router: Router, private cookieService: CookieService) { }
   
   ngOnInit(): void {
-
     this.username = localStorage.getItem('user-login');  
     this.isLoggedIn = localStorage.getItem('isLoggedIn');  
+ 
   }
 
 
@@ -47,8 +47,10 @@ export class AppComponent {
      
     })(jQuery);
     localStorage.clear();
-    this.authService.logout();  
-    this.router.navigate(['/signin']);  
+    localStorage.setItem('isLoggedIn','false'); 
+    this.cookieService.delete('accesstoken'); 
+    this.router.navigate(['/signin']); 
+    window.location.href = this.url1; 
   }  
 
 }

@@ -1,5 +1,10 @@
 import { Component, OnInit,ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import {DomSanitizer,SafeResourceUrl,} from '@angular/platform-browser';
+import { Router } from "@angular/router";
+import { AuthService } from '../Services/auth.service';
+import { HttpClient } from '@angular/common/http';
+import { GrafanaOAuthService } from '../Services/grafana-oauth.service';
+import { CookieService } from 'ngx-cookie-service';
 
 declare  var jQuery:  any;
 @Component({
@@ -10,19 +15,39 @@ declare  var jQuery:  any;
 export class DashboardComponent implements OnInit, AfterViewInit {
   public innerWidth: any;
   public innerHeight: any;
-
+  private accessToken: any;
+  private url1 ="http://localhost:4200/"
   @ViewChild('iframe') iframe!: ElementRef;
   // init_url:SafeResourceUrl = "http://localhost:3000/d/MFmXcoR7k/new-dashboard?orgId=1&from=now%2Fd&to=now%2Fd&var-show_value=data_out&var-value_above=10000&refresh=5s";
   init_url:SafeResourceUrl = "http://localhost:3000/dashboard/script/scripted.js?orgId=1&refresh=5s&from=1609434000000&to=1625734491307";
-  constructor(public sanitizer:DomSanitizer) { }
+  constructor(public sanitizer:DomSanitizer,private router: Router,  private http: HttpClient,private serverAuth: GrafanaOAuthService,private cookieService: CookieService, private authService: AuthService) { }
 
   
   ngOnInit(): void {
     this.innerWidth = window.innerWidth;
-      this.innerHeight = window.innerHeight;
+    this.innerHeight = window.innerHeight;
     this.init_url = this.sanitizer.bypassSecurityTrustResourceUrl( "http://localhost:3000/dashboard/script/scripted.js?orgId=1&refresh=5s&from=now%2Fd&to=now%2Fd&kiosk=tv");
-    //console.log(this.init_url);
-    
+
+    this.accessToken = this.cookieService.get('accesstoken')
+    const headers = { 'Authorization': 'Bearer ' + this.accessToken}
+    this.http.get<any>('http://localhost:8080/user', {headers}).subscribe({
+      next: data => {
+        
+      },
+      error: error => {
+          console.error('There was an error!', error);
+          (function ($) {
+            console.log(1);
+            $('iframe').attr("src","http://localhost:3000/logout")
+           
+          })(jQuery);
+          localStorage.clear();
+          localStorage.setItem('isLoggedIn','false'); 
+          this.cookieService.delete('accesstoken'); 
+          this.router.navigate(['/signin']); 
+          window.location.href = this.url1; 
+      }
+  })
     
     
     
