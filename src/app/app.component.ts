@@ -43,7 +43,7 @@ export class AppComponent {
     console.log('logout');  
     (function ($) {
       console.log(1);
-      $('iframe').attr("src","http://172.29.65.199:3000/logout")
+      $('iframe').attr("src","http://172.29.65.199/logout")
      
     })(jQuery);
     localStorage.clear();
