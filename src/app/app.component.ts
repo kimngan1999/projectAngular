@@ -49,8 +49,9 @@ export class AppComponent {
     localStorage.clear();
     localStorage.setItem('isLoggedIn','false'); 
     this.cookieService.delete('accesstoken'); 
-    this.router.navigate(['/signin']); 
-    window.location.href = this.url1; 
+    window.location.reload();
+    // this.router.navigate(['/signin']); 
+    // window.location.href = this.url1; 
   }  
 
 }
