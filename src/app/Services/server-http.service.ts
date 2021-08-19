@@ -17,9 +17,9 @@ export class ServerHttpService {
       // Authorization: 'my-auth-token'
     })
   };
-  private REST_API_SERVER = 'http://172.29.65.197:8000';
+  private REST_API_SERVER = 'http://172.29.65.193:8000';
 
-  private REST_API_SERVER_LOGIN = 'http://172.29.65.197:3000';
+  private REST_API_SERVER_LOGIN = 'http://172.29.65.193:3000';
 
   constructor(private httpClient: HttpClient) { }
   // product
