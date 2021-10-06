@@ -28,6 +28,7 @@ export class AppComponent {
   showModeratorBoard = false;
   accesstoken:any;
   username:any;
+  public logouturl: any = "";
  
 
   constructor( private authService: AuthService, private router: Router, private cookieService: CookieService) { }
@@ -41,11 +42,13 @@ export class AppComponent {
 
   logOut() {  
     console.log('logout');  
-    (function ($) {
-      console.log(1);
-      $('iframe').attr("src","http://172.29.65.195:8088/logout")
+    // (function ($) {
+    //   console.log(1);
+    //   $('iframe').attr("src","http://172.29.65.195:8088/logout")
      
-    })(jQuery);
+    // })(jQuery);
+    this.logouturl = "http://172.29.65.195/logout";
+    window.location.href = this.logouturl;
     localStorage.clear();
     localStorage.setItem('isLoggedIn','false'); 
     this.cookieService.delete('accesstoken'); 
