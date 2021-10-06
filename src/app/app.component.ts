@@ -14,7 +14,7 @@ declare var jQuery: any;
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  private url1 ="http://172.29.65.199:4200/"
+  private url1 ="http://172.29.65.195:4200/"
 
   
   rearchClass = "search"
@@ -43,7 +43,7 @@ export class AppComponent {
     console.log('logout');  
     (function ($) {
       console.log(1);
-      $('iframe').attr("src","http://172.29.65.199/logout")
+      $('iframe').attr("src","http://172.29.65.195:8088/logout")
      
     })(jQuery);
     localStorage.clear();

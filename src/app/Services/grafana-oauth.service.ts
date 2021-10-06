@@ -15,7 +15,7 @@ export class GrafanaOAuthService {
   public url = "";
   public username:any;
   public email:any;
-  private url1 ="http://172.29.65.199:4200/"
+  private url1 ="http://172.29.65.195:4200/"
   constructor( private httpClient: HttpClient, private router: Router, private cookieService: CookieService) { }
   
   private httpOptions = {
@@ -23,7 +23,7 @@ export class GrafanaOAuthService {
       'Content-Type':  'application/json',
     })
   };
-  private REST_API_SERVER = 'http://172.29.65.199:8000';
+  private REST_API_SERVER = 'http://172.29.65.195:8000';
 
   public getToken(){
     const url = `${this.REST_API_SERVER}/token`;
@@ -57,7 +57,7 @@ export class GrafanaOAuthService {
   public login(user:any ,pass: any) {  
     const dateNow = new Date();
     dateNow.setHours(dateNow.getHours() + 8);
-    return this.httpClient.post<any>('http://172.29.65.199:8080/users/login', {username: user,password: pass}).subscribe(
+    return this.httpClient.post<any>('http://172.29.65.195:8080/users/login', {username: user,password: pass}).subscribe(
     (data) => {
         this.Grafanalogin( data.user.username,  data.user.email)
         console.log(this.Grafanalogin);
@@ -72,7 +72,7 @@ export class GrafanaOAuthService {
   }
 
   public Grafanalogin(username:any,email:any) {  
-    return this.httpClient.patch<any>('http://172.29.65.199:8080/activeuser/6114d25e0ef030016eb610bd',{username: username, email:email}).subscribe(
+    return this.httpClient.patch<any>('http://172.29.65.195:8080/activeuser/6114d25e0ef030016eb610bd',{username: username, email:email}).subscribe(
     (data) => {
         console.log(data);
       }

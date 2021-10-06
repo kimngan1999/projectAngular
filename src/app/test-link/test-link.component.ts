@@ -15,7 +15,7 @@ export class TestLinkComponent implements OnInit {
   public innerWidth: any;
   public innerHeight: any;
   private accessToken: any;
-  private url1 ="http://172.29.65.199:4200/"
+  private url1 ="http://172.29.65.195:4200/"
   constructor(private router: Router,  private http: HttpClient,private serverAuth: GrafanaOAuthService,private cookieService: CookieService, private authService: AuthService) { }
 
   ngOnInit(): void {
@@ -24,7 +24,7 @@ export class TestLinkComponent implements OnInit {
 
     this.accessToken = this.cookieService.get('accesstoken')
     const headers = { 'Authorization': 'Bearer ' + this.accessToken}
-    this.http.get<any>('http://172.29.65.199:8080/user', {headers}).subscribe({
+    this.http.get<any>('http://172.29.65.195:8080/user', {headers}).subscribe({
       next: data => {
         
       },
@@ -32,7 +32,7 @@ export class TestLinkComponent implements OnInit {
           console.error('There was an error!', error);
           (function ($) {
             console.log(1);
-            $('iframe').attr("src","http://172.29.65.199/logout")
+            $('iframe').attr("src","http://172.29.65.195:8088/logout")
            
           })(jQuery);
           localStorage.clear();
