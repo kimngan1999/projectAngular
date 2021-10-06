@@ -47,7 +47,7 @@ export class AppComponent {
     //   $('iframe').attr("src","http://172.29.65.195:8088/logout")
      
     // })(jQuery);
-    this.logouturl = "http://172.29.65.195/logout";
+    this.logouturl = "http://172.29.65.195:8088/logout";
     window.location.href = this.logouturl;
     localStorage.clear();
     localStorage.setItem('isLoggedIn','false'); 
