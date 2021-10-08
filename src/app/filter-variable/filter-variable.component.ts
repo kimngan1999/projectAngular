@@ -25,7 +25,7 @@ export class FilterVariableComponent implements OnInit {
   ngOnInit(): void {
     this.accessToken = this.cookieService.get('accesstoken')
     const headers = { 'Authorization': 'Bearer ' + this.accessToken}
-    this.http.get<any>('http://172.29.65.199:8080/user', {headers}).subscribe({
+    this.http.get<any>('http://172.29.65.195:8080/user', {headers}).subscribe({
       next: data => {
         
       },
