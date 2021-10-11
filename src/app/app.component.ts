@@ -47,14 +47,12 @@ export class AppComponent {
     //   $('iframe').attr("src","http://172.29.65.195:8088/logout")
      
     // })(jQuery);
-    this.logouturl = "http://172.29.65.195:8088/logout";
-    window.location.href = this.logouturl;
+    window.open("http://172.29.65.195:8088/logout")
     localStorage.clear();
     localStorage.setItem('isLoggedIn','false'); 
     this.cookieService.delete('accesstoken'); 
     window.location.reload();
     this.router.navigate(['/signin']); 
-    // window.location.href = this.url1; 
   }  
 
 }
