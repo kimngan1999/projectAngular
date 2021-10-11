@@ -41,17 +41,17 @@ export class AppComponent {
 
   logOut() {  
     console.log('logout');  
-    (function ($) {
-      console.log(1);
-      $('iframe').attr("src","http://172.29.65.199/logout")
+    // (function ($) {
+    //   console.log(1);
+    //   $('iframe').attr("src","http://172.29.65.199/logout")
      
-    })(jQuery);
+    // })(jQuery);
+    window.open("http://172.29.65.199/logout")
     localStorage.clear();
     localStorage.setItem('isLoggedIn','false'); 
     this.cookieService.delete('accesstoken'); 
     window.location.reload();
     this.router.navigate(['/signin']); 
-    // window.location.href = this.url1; 
   }  
 
 }
