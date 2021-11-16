@@ -30,7 +30,12 @@ export class TestLinkComponent implements OnInit {
       },
       error: error => {
           console.error('There was an error!', error);
-          window.open("http://172.29.65.199/logout")
+          (function ($) {
+            console.log(1);
+            $('iframe').attr("src","http://172.29.65.197:3000/logout")
+           
+          })(jQuery);
+          // window.open("http://172.29.65.197:3000/logout")
           localStorage.clear();
           localStorage.setItem('isLoggedIn','false'); 
           this.cookieService.delete('accesstoken'); 
