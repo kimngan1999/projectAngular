@@ -14,7 +14,7 @@ declare var jQuery: any;
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  private url1 ="http://172.29.65.199:4200/"
+  private url1 ="http://172.29.65.197:4200/"
 
   
   rearchClass = "search"

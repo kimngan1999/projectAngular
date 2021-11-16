@@ -15,7 +15,7 @@ export class TestLinkComponent implements OnInit {
   public innerWidth: any;
   public innerHeight: any;
   private accessToken: any;
-  private url1 ="http://172.29.65.199:4200/"
+  private url1 ="http://172.29.65.197:4200/"
   constructor(private router: Router,  private http: HttpClient,private serverAuth: GrafanaOAuthService,private cookieService: CookieService, private authService: AuthService) { }
 
   ngOnInit(): void {

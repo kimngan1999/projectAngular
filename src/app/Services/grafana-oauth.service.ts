@@ -15,7 +15,7 @@ export class GrafanaOAuthService {
   public url = "";
   public username:any;
   public email:any;
-  private url1 ="http://172.29.65.199:4200/"
+  private url1 ="http://172.29.65.197:4200/"
   constructor( private httpClient: HttpClient, private router: Router, private cookieService: CookieService) { }
   
   private httpOptions = {
@@ -23,7 +23,7 @@ export class GrafanaOAuthService {
       'Content-Type':  'application/json',
     })
   };
-  private REST_API_SERVER = 'http://172.29.65.199:8000';
+  private REST_API_SERVER = 'http://172.29.65.197:8000';
 
   public getToken(){
     const url = `${this.REST_API_SERVER}/token`;
