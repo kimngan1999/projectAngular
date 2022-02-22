@@ -15,7 +15,7 @@ exports.config = {
   },
   directConnect: true,
   SELENIUM_PROMISE_MANAGER: false,
-  baseUrl: "http://172.29.65.195:4200/",
+  baseUrl: "http://172.29.65.193:4200/",
   framework: "jasmine",
   jasmineNodeOpts: {
     showColors: true,

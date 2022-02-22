@@ -19,7 +19,7 @@ export class AuthComponent implements OnInit {
       this.state = params['state'];
       console.log("state", this.state); // Print the parameter to the console. 
     });
-    this.url = "http://172.29.65.195/login/generic_oauth?state=" + this.state + "&code=cc536d98d27750394a87ab9d057016e636a8ac31";
+    this.url = "http://172.29.65.193/login/generic_oauth?state=" + this.state + "&code=cc536d98d27750394a87ab9d057016e636a8ac31";
     window.location.href = this.url;
 
 

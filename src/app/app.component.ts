@@ -14,7 +14,7 @@ declare var jQuery: any;
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  private url1 ="http://172.29.65.195:4200/"
+  private url1 ="http://172.29.65.193:4200/"
 
   
   rearchClass = "search"
@@ -47,7 +47,7 @@ export class AppComponent {
     //   $('iframe').attr("src","http://172.29.65.195:8088/logout")
      
     // })(jQuery);
-    window.open("http://172.29.65.195:8088/logout")
+    window.open("http://172.29.65.193:8088/logout")
     localStorage.clear();
     localStorage.setItem('isLoggedIn','false'); 
     this.cookieService.delete('accesstoken'); 
